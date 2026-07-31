@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de Flavio Morales. Desarrollador de Software e Inteligencia Artificial. Diseños premium, interfaces fluidas y soluciones nativas.">
+    <meta name="author" content="Flavio Morales">
+    <title>Flavio Morales | Portafolio Profesional</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/Diseño.css">
+</head>
+<body>
+
+    <!-- Header / Navegación -->
+    <header class="navbar-header" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo" id="nav-logo">FM<span class="logo-dot">.</span></a>
+            
+            <!-- Menú Desktop -->
+            <nav class="navbar-menu" id="nav-menu">
+                <a href="#hero" class="menu-link active">Inicio</a>
+                <a href="#about" class="menu-link">Sobre Mí</a>
+                <a href="#skills" class="menu-link">Habilidades</a>
+                <a href="#projects" class="menu-link">Proyectos</a>
+                <a href="#contact" class="menu-link">Contacto</a>
+            </nav>
+
+            <!-- Botones de Redes Sociales (Desktop) -->
+            <div class="navbar-socials" id="nav-socials-desktop">
+                <a href="https://github.com/Josue2004exe" target="_blank" aria-label="GitHub de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/flavio-morales-13131a416/" target="_blank" aria-label="LinkedIn de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+
+            <!-- Botón Hamburguesa (Móvil Android) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menú Deslizable Móvil (Drawer) -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <nav class="drawer-menu">
+            <a href="#hero" class="drawer-link">Inicio</a>
+            <a href="#about" class="drawer-link">Sobre Mí</a>
+            <a href="#skills" class="drawer-link">Habilidades</a>
+            <a href="#projects" class="drawer-link">Proyectos</a>
+            <a href="#contact" class="drawer-link">Contacto</a>
+        </nav>
+        <div class="drawer-socials">
+            <a href="https://github.com/Josue2004exe" target="_blank" aria-label="GitHub de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/flavio-morales-13131a416/" target="_blank" aria-label="LinkedIn de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <main>
+        <!-- Sección Hero -->
+        <section class="hero-section" id="hero">
+            <div class="hero-content">
+                <div class="hero-badge fade-in-element">Disponible para nuevos proyectos</div>
+                <h1 class="hero-title fade-in-element">
+                    Flavio Morales
+                </h1>
+                <p class="hero-subtitle fade-in-element">
+                    Desarrollador de Software enfocado en el diseño de software para PC, aplicaciones móviles y arquitecturas de Inteligencia Artificial, impulsado por flujos de trabajo modernos de vibe coding.
+                </p>
+                <div class="hero-actions fade-in-element">
+                    <a href="#projects" class="btn btn-primary" id="hero-cta-projects">Ver Proyectos</a>
+                    <a href="#contact" class="btn btn-secondary" id="hero-cta-contact">Contactar</a>
+                </div>
+            </div>
+            <div class="hero-background-gradient"></div>
+        </section>
+
+        <!-- Sección Sobre Mí -->
+        <section class="about-section scroll-reveal" id="about">
+            <div class="section-container">
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="about-grid">
+                    <div class="about-card image-card">
+                        <img src="assets/images/profile.jpg" alt="Foto de perfil de Flavio Morales" class="profile-img">
+                    </div>
+                    <div class="about-card text-card">
+                        <h3>Mi Enfoque</h3>
+                        <p>
+                            Como estudiante universitario actualmente cursando el 5to semestre de Ingeniería de Software, combino las bases académicas y el rigor técnico con las últimas herramientas de desarrollo rápido.
+                        </p>
+                        <p>
+                            Me apasiona llevar la teoría de algoritmos y lógica a la práctica real mediante la creación de aplicaciones funcionales para PC y móviles. Mi enfoque está en el aprendizaje continuo, experimentando con arquitecturas de IA y adoptando flujos de *vibe coding* para transformar proyectos académicos en soluciones de impacto.
+                        </p>
+                    </div>
+                    <div class="about-card stats-card">
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Años de código</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Proyectos terminados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">Código limpio y probado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Habilidades -->
+        <section class="skills-section scroll-reveal" id="skills">
+            <div class="section-container">
+                <h2 class="section-title">Habilidades</h2>
+                <p class="section-subtitle">Las tecnologías que utilizo para dar vida a los proyectos.</p>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon icon-android"><i class="fa-brands fa-android"></i></div>
+                        <h3>Desarrollo Android</h3>
+                        <p>Creación de aplicaciones nativas en Kotlin, uso de Jetpack Compose, viewmodels y manejo seguro de almacenamiento local.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Kotlin</span>
+                            <span class="skill-tag">Jetpack Compose</span>
+                            <span class="skill-tag">Android Studio</span>
+                            <span class="skill-tag">Room DB</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon icon-ai"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Inteligencia Artificial</h3>
+                        <p>Integración de APIs de Modelos de Lenguaje (LLMs) como Gemini, análisis semántico de datos y automatización inteligente.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Gemini API</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">Prompting</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon icon-frontend"><i class="fa-solid fa-code"></i></div>
+                        <h3>Desarrollo Frontend</h3>
+                        <p>Construcción de interfaces interactivas y responsivas usando tecnologías web puras (HTML5, CSS3, JavaScript Vanilla).</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5 / CSS3</span>
+                            <span class="skill-tag">JS Vanilla</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Web Standards</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon icon-pc"><i class="fa-solid fa-desktop"></i></div>
+                        <h3>Software PC & Backend</h3>
+                        <p>Desarrollo de programas de escritorio robustos para Windows/Linux, optimización de bases de datos locales y APIs de integración.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C# / .NET</span>
+                            <span class="skill-tag">Java Desktop</span>
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">Vibe Coding</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Proyectos -->
+        <section class="projects-section scroll-reveal" id="projects">
+            <div class="section-container">
+                <h2 class="section-title">Proyectos destacados</h2>
+                <p class="section-subtitle">Una selección de las aplicaciones que he diseñado y programado.</p>
+                
+                <!-- Filtros de Proyectos -->
+                <div class="projects-filters">
+                    <button class="filter-btn active" data-filter="all" id="btn-filter-all">Todos</button>
+                    <button class="filter-btn" data-filter="android" id="btn-filter-android">Android</button>
+                    <button class="filter-btn" data-filter="ai" id="btn-filter-ai">IA</button>
+                    <button class="filter-btn" data-filter="web" id="btn-filter-web">Web</button>
+                </div>
+
+                <!-- Grid de Proyectos -->
+                <div class="projects-grid">
+                    <!-- Proyecto 1: DupCleaner -->
+                    <article class="project-card" data-category="android">
+                        <div class="project-image-placeholder">
+                            <img src="assets/images/dupcleaner.png" alt="Logo de DupCleaner" class="project-logo">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">Android / Kotlin</span>
+                            <h3 class="project-card-title">DupCleaner</h3>
+                            <p class="project-card-desc">
+                                Aplicación Android nativa en Kotlin y Jetpack Compose (MVVM). Escanea la agenda del dispositivo para agrupar y depurar de forma inteligente contactos duplicados, permitiendo un borrado masivo y seguro que protege el registro original.
+                            </p>
+                            <div class="project-links">
+                                <button class="project-link-btn play-demo-btn" data-video="assets/videos/0731.mp4" aria-label="Ver demostración en video de DupCleaner"><i class="fa-solid fa-play"></i> Demo</button>
+                                <span class="project-link-btn disabled-btn" aria-label="Lanzamiento próximamente en Google Play"><i class="fa-brands fa-google-play"></i> Próximamente</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2: AI Semantic Assistant -->
+                    <article class="project-card" data-category="ai">
+                        <div class="project-image-placeholder">
+                            <img src="assets/images/ai_assistant.png" alt="Visual de AI Semantic Assistant" class="project-img">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">Inteligencia Artificial</span>
+                            <h3 class="project-card-title">AI Semantic Assistant</h3>
+                            <p class="project-card-desc">
+                                Asistente inteligente capaz de analizar, estructurar y clasificar grandes volúmenes de texto de manera semántica. Integra APIs de procesamiento de lenguaje natural y automatiza reportes.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de AI Semantic Assistant en GitHub"><i class="fa-brands fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3: TaskFlow Dashboard -->
+                    <article class="project-card" data-category="web">
+                        <div class="project-image-placeholder">
+                            <img src="assets/images/taskflow.png" alt="Visual de TaskFlow Dashboard" class="project-img">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag">Desarrollo Web</span>
+                            <h3 class="project-card-title">TaskFlow Dashboard</h3>
+                            <p class="project-card-desc">
+                                Panel web de productividad con interfaz de cristal (glassmorphism) de alto rendimiento. Totalmente interactivo, responsivo y construido sin dependencias externas pesadas.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de TaskFlow Dashboard en GitHub"><i class="fa-brands fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section class="contact-section scroll-reveal" id="contact">
+            <div class="section-container">
+                <h2 class="section-title">Hablemos</h2>
+                <p class="section-subtitle">¿Tienes un proyecto en mente o una propuesta laboral? Escríbeme.</p>
+                <div class="contact-grid">
+                    <div class="contact-info-panel">
+                        <h3>Información de Contacto</h3>
+                        <p>Escríbeme directamente o encuéntrame en mis redes profesionales.</p>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="info-text">
+                                    <span class="info-label">Correo</span>
+                                    <a href="mailto:alexpc778@gmail.com" class="info-link">alexpc778@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="info-text">
+                                    <span class="info-label">Ubicación</span>
+                                    <span class="info-val">Ecuador</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-panel">
+                        <form id="contact-form" action="#" method="POST" novalidate>
+                            <div class="form-group">
+                                <input type="text" id="form-name" name="name" required placeholder=" " aria-required="true">
+                                <label for="form-name">Nombre</label>
+                                <span class="error-msg" id="error-name">Por favor ingresa tu nombre</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="form-email" name="email" required placeholder=" " aria-required="true">
+                                <label for="form-email">Email</label>
+                                <span class="error-msg" id="error-email">Por favor ingresa un email válido</span>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="form-message" name="message" required rows="5" placeholder=" " aria-required="true"></textarea>
+                                <label for="form-message">Mensaje</label>
+                                <span class="error-msg" id="error-message">El mensaje no puede estar vacío</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit" id="btn-submit-form">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-copyright">&copy; 2026 Flavio Morales. Todos los derechos reservados.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/Josue2004exe" target="_blank" aria-label="GitHub de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/flavio-morales-13131a416/" target="_blank" aria-label="LinkedIn de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Demostración en Video -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="video-modal-close" aria-label="Cerrar reproductor">&times;</button>
+            <div class="video-wrapper">
+                <video id="modal-video-player" controls>
+                    <source src="" type="video/mp4">
+                    Tu navegador no soporta reproducción de video.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="js/Logica.js"></script>
+</body>
+</html>
