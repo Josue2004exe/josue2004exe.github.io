@@ -1183,13 +1183,19 @@ CONTACTO
     display: inline-block;
 }
 
-/* Antigravity IDE (Rosa neón a Naranja cohete) */
+/* Antigravity IDE (Letra A Invertida de cabeza - Logo Oficial) */
+.icon-antigravity {
+    transform: rotate(180deg);
+    display: inline-block !important;
+}
+
 .skill-card:hover .icon-antigravity,
 .skill-tag:hover .icon-antigravity {
-    background: linear-gradient(135deg, #ff007f 20%, #ff7700 80%);
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 30%, #FBBC05 60%, #EA4335 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
+    display: inline-block !important;
+    transform: rotate(180deg);
 }
 
 /* Git / GitHub (Naranja Git a Blanco) */
