@@ -374,16 +374,95 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 120px 24px 80px;
+    padding: 140px 24px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 2;
     position: relative;
 }
 
+@media (min-width: 992px) {
+    .hero-container {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 60px;
+        text-align: left;
+    }
+}
+
+.hero-image-wrapper {
+    flex-shrink: 0;
+    width: 260px;
+    height: 260px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@media (min-width: 576px) {
+    .hero-image-wrapper {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-image-wrapper {
+        width: 380px;
+        height: 380px;
+    }
+}
+
+.hero-image-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    background-color: var(--bg-card);
+    transition: var(--transition-premium);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 50px rgba(255, 255, 255, 0.01);
+}
+
+.hero-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: var(--transition-premium);
+}
+
+.hero-image-card:hover {
+    border-color: var(--border-color-hover);
+    transform: scale(1.02) translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 255, 255, 0.03);
+}
+
+.hero-image-card:hover .hero-profile-img {
+    filter: grayscale(0%);
+}
+
 .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 680px;
+    width: 100%;
     text-align: center;
     position: relative;
     z-index: 2;
+}
+
+@media (min-width: 992px) {
+    .hero-content {
+        text-align: left;
+    }
 }
 
 .hero-badge {
@@ -403,9 +482,9 @@ img {
 
 .hero-title {
     font-family: var(--font-title);
-    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
     font-weight: 800;
-    line-height: 0.95;
+    line-height: 1.05;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     margin-bottom: 24px;
@@ -413,14 +492,28 @@ img {
     transform: translateY(20px);
 }
 
+.hero-highlight {
+    display: block;
+    color: var(--text-primary);
+    position: relative;
+}
+
 .hero-subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 40px;
     font-weight: 400;
     opacity: 0;
     transform: translateY(20px);
+    line-height: 1.6;
+}
+
+@media (min-width: 992px) {
+    .hero-subtitle {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 .hero-actions {
@@ -431,15 +524,22 @@ img {
     transform: translateY(20px);
 }
 
+@media (min-width: 992px) {
+    .hero-actions {
+        justify-content: flex-start;
+    }
+}
+
 /* Animación inicial del Hero */
 .fade-in-element {
     animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.hero-badge.fade-in-element { animation-delay: 0.1s; }
-.hero-title.fade-in-element { animation-delay: 0.2s; }
-.hero-subtitle.fade-in-element { animation-delay: 0.3s; }
-.hero-actions.fade-in-element { animation-delay: 0.4s; }
+.hero-image-wrapper.fade-in-element { animation-delay: 0.1s; }
+.hero-badge.fade-in-element { animation-delay: 0.2s; }
+.hero-title.fade-in-element { animation-delay: 0.3s; }
+.hero-subtitle.fade-in-element { animation-delay: 0.4s; }
+.hero-actions.fade-in-element { animation-delay: 0.5s; }
 
 @keyframes heroFadeIn {
     to {
