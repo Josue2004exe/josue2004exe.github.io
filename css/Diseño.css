@@ -1089,7 +1089,12 @@ CONTACTO
 .skill-tag:hover .icon-android { color: #3DDC84; }
 .skill-tag:hover .icon-room { color: #4285F4; }
 .skill-tag:hover .icon-gemini { color: #a78bfa; }
-.skill-tag:hover .icon-python { color: #3776AB; }
+.skill-tag:hover .icon-python { 
+    background: linear-gradient(135deg, #3776AB 45%, #FFD343 55%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
 .skill-tag:hover .icon-nlp { color: #00ffd1; }
 .skill-tag:hover .icon-prompting { color: #39ff14; }
 .skill-tag:hover .icon-sqlserver { color: #CC292B; }
