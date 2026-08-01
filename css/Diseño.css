@@ -1252,3 +1252,65 @@ CONTACTO
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   MICRO-ANIMACIONES PREMIUM E INTERACTIVIDAD
+   ========================================================================== */
+
+/* Efecto de Brillo Deslizable en Botones Primarios */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(35deg);
+    transition: none;
+    pointer-events: none;
+    animation: buttonShine 6s infinite ease-in-out;
+}
+
+@keyframes buttonShine {
+    0% { left: -60%; }
+    12% { left: 140%; }
+    100% { left: 140%; }
+}
+
+/* Efecto Spotlight Hover en Tarjetas Interactivas */
+.skill-card, .project-card, .about-card {
+    position: relative;
+}
+
+.skill-card::before, .project-card::before, .about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+        rgba(255, 255, 255, 0.12),
+        transparent 50%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3;
+}
+
+.skill-card:hover::before, .project-card:hover::before, .about-card:hover::before {
+    opacity: 1;
+}
