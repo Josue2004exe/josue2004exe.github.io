@@ -681,12 +681,23 @@ SOBRE MÍ
 .principle-svg {
     width: 100%;
     height: 100%;
+    filter: grayscale(100%);
+    opacity: 0.5;
     transition: var(--transition-premium);
 }
 
+/* Activar color en todos los iconos al interactuar con la tarjeta completa */
+.principles-card:hover .principle-svg,
+.principles-card.touch-hover .principle-svg {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Efecto individual más pronunciado al interactuar con cada principio */
 .principle-item:hover .principle-svg,
 .principle-item.touch-hover .principle-svg {
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+    filter: grayscale(0%) drop-shadow(0 0 8px rgba(255, 255, 255, 0.25));
+    opacity: 1;
 }
 
 .principle-text h4 {
