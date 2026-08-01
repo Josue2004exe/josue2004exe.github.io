@@ -1084,26 +1084,140 @@ CONTACTO
     transition: var(--transition-premium);
 }
 
-.skill-tag:hover .icon-kotlin { color: #7F52FF; }
-.skill-tag:hover .icon-compose { color: #4285F4; }
-.skill-tag:hover .icon-android { color: #3DDC84; }
-.skill-tag:hover .icon-room { color: #4285F4; }
-.skill-tag:hover .icon-gemini { color: #a78bfa; }
+/* Kotlin (Morado a Naranja) */
+.skill-card:hover .icon-kotlin,
+.skill-tag:hover .icon-kotlin {
+    background: linear-gradient(135deg, #FF8900 0%, #FF2B7F 50%, #7F52FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Jetpack Compose (Azul Google a Verde Android) */
+.skill-card:hover .icon-compose,
+.skill-tag:hover .icon-compose {
+    background: linear-gradient(135deg, #4285F4 20%, #3DDC84 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Android Studio (Verde Android brillante) */
+.skill-card:hover .icon-android,
+.skill-tag:hover .icon-android {
+    background: linear-gradient(135deg, #3DDC84 30%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Room DB (Azul a Turquesa Google Cloud) */
+.skill-card:hover .icon-room,
+.skill-tag:hover .icon-room {
+    background: linear-gradient(135deg, #4285F4 30%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Gemini API (Azul, Morado y Rosa de Gemini) */
+.skill-card:hover .icon-gemini,
+.skill-tag:hover .icon-gemini {
+    background: linear-gradient(135deg, #1A73E8 10%, #9B5DE5 50%, #F15BB5 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Python (Azul y Amarillo oficiales) */
+.skill-card:hover .icon-python,
 .skill-tag:hover .icon-python { 
     background: linear-gradient(135deg, #3776AB 45%, #FFD343 55%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
-.skill-tag:hover .icon-nlp { color: #00ffd1; }
-.skill-tag:hover .icon-prompting { color: #39ff14; }
-.skill-tag:hover .icon-sqlserver { color: #CC292B; }
-.skill-tag:hover .icon-sqlite { color: #0f80cc; }
-.skill-tag:hover .icon-csharp { color: #512BD4; }
-.skill-tag:hover .icon-antigravity { color: #ff007f; }
-.skill-tag:hover .icon-git { color: #F05032; }
-.skill-tag:hover .icon-vscode { color: #007ACC; }
-.skill-tag:hover .icon-vibe { color: #FFD166; }
+
+/* NLP (Turquesa a Azul brillante) */
+.skill-card:hover .icon-nlp,
+.skill-tag:hover .icon-nlp {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Prompting (Verde Neón a Cian) */
+.skill-card:hover .icon-prompting,
+.skill-tag:hover .icon-prompting {
+    background: linear-gradient(135deg, #39ff14 30%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* SQL Server (Rojo Microsoft a Naranja brillante) */
+.skill-card:hover .icon-sqlserver,
+.skill-tag:hover .icon-sqlserver {
+    background: linear-gradient(135deg, #CC292B 30%, #ff4b4b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* SQLite (Azul SQLite a Azul profundo) */
+.skill-card:hover .icon-sqlite,
+.skill-tag:hover .icon-sqlite {
+    background: linear-gradient(135deg, #0f80cc 20%, #003B57 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* C# / .NET (Morado Microsoft a Violeta brillante) */
+.skill-card:hover .icon-csharp,
+.skill-tag:hover .icon-csharp {
+    background: linear-gradient(135deg, #512BD4 30%, #7F52FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Antigravity IDE (Rosa neón a Naranja cohete) */
+.skill-card:hover .icon-antigravity,
+.skill-tag:hover .icon-antigravity {
+    background: linear-gradient(135deg, #ff007f 20%, #ff7700 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Git / GitHub (Naranja Git a Blanco) */
+.skill-card:hover .icon-git,
+.skill-tag:hover .icon-git {
+    background: linear-gradient(135deg, #F05032 40%, #ffffff 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* VS Code (Azul VS Code a Morado) */
+.skill-card:hover .icon-vscode,
+.skill-tag:hover .icon-vscode {
+    background: linear-gradient(135deg, #007ACC 30%, #5C2D91 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Vibe Coding (Amarillo eléctrico a Rojo neón) */
+.skill-card:hover .icon-vibe,
+.skill-tag:hover .icon-vibe {
+    background: linear-gradient(135deg, #FFD166 30%, #FF6B6B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
 
 
 /* Estilos de botones de proyectos y modal de video */
