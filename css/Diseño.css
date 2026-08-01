@@ -1079,6 +1079,28 @@ CONTACTO
     background: rgba(255, 255, 255, 0.06);
 }
 
+/* Colores oficiales de marca individuales en hover para los iconos de tecnologías */
+.skill-tag i {
+    transition: var(--transition-premium);
+}
+
+.skill-tag:hover .icon-kotlin { color: #7F52FF; }
+.skill-tag:hover .icon-compose { color: #4285F4; }
+.skill-tag:hover .icon-android { color: #3DDC84; }
+.skill-tag:hover .icon-room { color: #4285F4; }
+.skill-tag:hover .icon-gemini { color: #a78bfa; }
+.skill-tag:hover .icon-python { color: #3776AB; }
+.skill-tag:hover .icon-nlp { color: #00ffd1; }
+.skill-tag:hover .icon-prompting { color: #39ff14; }
+.skill-tag:hover .icon-sqlserver { color: #CC292B; }
+.skill-tag:hover .icon-sqlite { color: #0f80cc; }
+.skill-tag:hover .icon-csharp { color: #512BD4; }
+.skill-tag:hover .icon-antigravity { color: #ff007f; }
+.skill-tag:hover .icon-git { color: #F05032; }
+.skill-tag:hover .icon-vscode { color: #007ACC; }
+.skill-tag:hover .icon-vibe { color: #FFD166; }
+
+
 /* Estilos de botones de proyectos y modal de video */
 .play-demo-btn {
     cursor: pointer;
