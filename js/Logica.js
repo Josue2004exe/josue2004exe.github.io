@@ -351,5 +351,191 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.remove('touch-hover');
         }, { passive: true });
     });
+
+    // --- 10. SISTEMA MULTILENGUAJE (ESPAÑOL / INGLÉS) ---
+    const translations = {
+        es: {
+            "nav-home": "Inicio",
+            "nav-about": "Sobre Mí",
+            "nav-skills": "Habilidades",
+            "nav-projects": "Proyectos",
+            "nav-contact": "Contacto",
+            "hero-badge": "Disponible para nuevos proyectos",
+            "hero-title-prefix": "Hola, soy",
+            "hero-title-name": "Flavio Josueph Morales",
+            "hero-subtitle": "Desarrollador de Software enfocado en el diseño de software para PC, aplicaciones móviles y arquitecturas de Inteligencia Artificial, impulsado por flujos de trabajo modernos de vibe coding.",
+            "hero-btn-projects": "Ver Proyectos",
+            "hero-btn-contact": "Contactar",
+            "about-title": "Sobre Mí",
+            "about-principles-title": "Principios",
+            "about-principle1-title": "IA Colaborativa",
+            "about-principle1-desc": "Maximizar el potencial de desarrollo mediante flujos ágiles y vibe coding.",
+            "about-principle2-title": "Código Limpio",
+            "about-principle2-desc": "Lógica estructurada y código legible basado en principios SOLID.",
+            "about-principle3-title": "Multiplataforma",
+            "about-principle3-desc": "Aplicaciones eficientes adaptadas tanto a PC como a dispositivos móviles.",
+            "about-approach-title": "Mi Enfoque",
+            "about-approach-desc1": "Como estudiante universitario actualmente cursando el 5to semestre de Ingeniería de Software, combino las bases académicas y el rigor técnico con las últimas herramientas de desarrollo rápido.",
+            "about-approach-desc2": "Me apasiona llevar la teoría de algoritmos y lógica a la práctica real mediante la creación de aplicaciones funcionales para PC y móviles. Mi enfoque está en el aprendizaje continuo, experimentando con arquitecturas de IA y adoptando flujos de vibe coding para transformar proyectos académicos en soluciones de impacto.",
+            "about-stat1-lbl": "Años de código",
+            "about-stat2-lbl": "Proyectos terminados",
+            "about-stat3-lbl": "Código limpio y probado",
+            "skills-title": "Habilidades",
+            "skills-subtitle": "Las tecnologías que utilizo para dar vida a los proyectos.",
+            "skills-android-title": "Desarrollo Android",
+            "skills-android-desc": "Creación de aplicaciones nativas en Kotlin, uso de Jetpack Compose, viewmodels y manejo seguro de almacenamiento local.",
+            "skills-ai-title": "Inteligencia Artificial",
+            "skills-ai-desc": "Integración de APIs de Modelos de Lenguaje (LLMs) como Gemini, análisis semántico de datos y automatización inteligente.",
+            "skills-db-title": "Bases de Datos & Backend",
+            "skills-db-desc": "Diseño y administración de bases de datos relacionales, optimización de consultas SQL complejas y lógica de almacenamiento estructurado.",
+            "skills-tools-title": "Entornos & Herramientas",
+            "skills-tools-desc": "Desarrollo ágil asistido por agentes inteligentes y entornos modernos que optimizan la productividad en el ciclo de vida del software.",
+            "projects-title": "Proyectos destacados",
+            "projects-subtitle": "Una selección de las aplicaciones que he diseñado y programado.",
+            "projects-filter-all": "Todos",
+            "projects-filter-android": "Android",
+            "projects-filter-ai": "IA",
+            "projects-filter-web": "Web",
+            "project1-tag": "Android / Kotlin",
+            "project1-title": "DupCleaner",
+            "project1-desc": "Aplicación Android nativa en Kotlin y Jetpack Compose (MVVM). Escanea la agenda del dispositivo para agrupar y depurar de forma inteligente contactos duplicados, permitiendo un borrado masivo y seguro que protege el registro original.",
+            "project1-demo": " Demo",
+            "project1-soon": " Próximamente",
+            "project2-tag": "Inteligencia Artificial",
+            "project2-title": "AI Semantic Assistant",
+            "project2-desc": "Asistente inteligente capaz de analizar, estructurar y clasificar grandes volúmenes de texto de manera semántica. Integra APIs de procesamiento de lenguaje natural y automatiza reportes.",
+            "project2-code": " Código",
+            "project3-tag": "Desarrollo Web",
+            "project3-title": "TaskFlow Dashboard",
+            "project3-desc": "Panel web de productividad con interfaz de cristal (glassmorphism) de alto rendimiento. Totalmente interactivo, responsivo y construido sin dependencias externas pesadas.",
+            "project3-code": " Código",
+            "contact-title": "Hablemos",
+            "contact-subtitle": "¿Tienes un proyecto en mente o una propuesta laboral? Escríbeme.",
+            "contact-info-title": "Información de Contacto",
+            "contact-info-desc": "Escríbeme directamente o encuéntrame en mis redes profesionales.",
+            "contact-info-email": "Correo",
+            "contact-info-location": "Ubicación",
+            "contact-info-location-val": "Ecuador",
+            "form-placeholder-name": "Nombre",
+            "form-placeholder-email": "Email",
+            "form-placeholder-message": "Mensaje",
+            "form-btn-submit": "Enviar Mensaje",
+            "footer-copyright": "© 2026 Flavio Morales. Todos los derechos reservados."
+        },
+        en: {
+            "nav-home": "Home",
+            "nav-about": "About Me",
+            "nav-skills": "Skills",
+            "nav-projects": "Projects",
+            "nav-contact": "Contact",
+            "hero-badge": "Available for new projects",
+            "hero-title-prefix": "Hi, I'm",
+            "hero-title-name": "Flavio Josueph Morales",
+            "hero-subtitle": "Software Developer focused on PC software design, mobile applications, and AI architectures, driven by modern vibe coding workflows.",
+            "hero-btn-projects": "View Projects",
+            "hero-btn-contact": "Contact",
+            "about-title": "About Me",
+            "about-principles-title": "Principles",
+            "about-principle1-title": "Collaborative AI",
+            "about-principle1-desc": "Maximize development potential through agile workflows and vibe coding.",
+            "about-principle2-title": "Clean Code",
+            "about-principle2-desc": "Structured logic and readable code based on SOLID principles.",
+            "about-principle3-title": "Multiplatform",
+            "about-principle3-desc": "Efficient applications tailored for both PC and mobile devices.",
+            "about-approach-title": "My Approach",
+            "about-approach-desc1": "As a university student currently in the 5th semester of Software Engineering, I combine academic foundations and technical rigor with the latest rapid development tools.",
+            "about-approach-desc2": "I am passionate about bringing algorithm theory and logic into real practice by creating functional applications for PC and mobile. My focus is on continuous learning, experimenting with AI architectures, and adopting vibe coding workflows to transform academic projects into high-impact solutions.",
+            "about-stat1-lbl": "Years of coding",
+            "about-stat2-lbl": "Projects completed",
+            "about-stat3-lbl": "Clean & tested code",
+            "skills-title": "Skills",
+            "skills-subtitle": "The technologies I use to bring projects to life.",
+            "skills-android-title": "Android Development",
+            "skills-android-desc": "Creation of native apps in Kotlin, using Jetpack Compose, viewmodels, and secure local storage management.",
+            "skills-ai-title": "Artificial Intelligence",
+            "skills-ai-desc": "Integration of Language Model (LLM) APIs like Gemini, semantic data analysis, and intelligent automation.",
+            "skills-db-title": "Databases & Backend",
+            "skills-db-desc": "Design and management of relational databases, optimization of complex SQL queries, and structured storage logic.",
+            "skills-tools-title": "Environments & Tools",
+            "skills-tools-desc": "Agile development assisted by intelligent agents and modern environments that optimize productivity in the software lifecycle.",
+            "projects-title": "Featured Projects",
+            "projects-subtitle": "A selection of applications I have designed and programmed.",
+            "projects-filter-all": "All",
+            "projects-filter-android": "Android",
+            "projects-filter-ai": "AI",
+            "projects-filter-web": "Web",
+            "project1-tag": "Android / Kotlin",
+            "project1-title": "DupCleaner",
+            "project1-desc": "Native Android app in Kotlin and Jetpack Compose (MVVM). Scans the device agenda to intelligently group and clean duplicate contacts, allowing secure bulk deletion that protects the original registry.",
+            "project1-demo": " Demo",
+            "project1-soon": " Coming Soon",
+            "project2-tag": "Artificial Intelligence",
+            "project2-title": "AI Semantic Assistant",
+            "project2-desc": "Intelligent assistant capable of analyzing, structuring, and classifying large volumes of text semantically. Integrates natural language processing APIs and automates reports.",
+            "project2-code": " Code",
+            "project3-tag": "Web Development",
+            "project3-title": "TaskFlow Dashboard",
+            "project3-desc": "Productivity web dashboard with high-performance glassmorphism interface. Fully interactive, responsive, and built without heavy external dependencies.",
+            "project3-code": " Code",
+            "contact-title": "Let's Talk",
+            "contact-subtitle": "Have a project in mind or a job proposal? Write to me.",
+            "contact-info-title": "Contact Information",
+            "contact-info-desc": "Write to me directly or find me on my professional networks.",
+            "contact-info-email": "Email",
+            "contact-info-location": "Location",
+            "contact-info-location-val": "Ecuador",
+            "form-placeholder-name": "Name",
+            "form-placeholder-email": "Email",
+            "form-placeholder-message": "Message",
+            "form-btn-submit": "Send Message",
+            "footer-copyright": "© 2026 Flavio Morales. All rights reserved."
+        }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'es';
+    const langToggles = document.querySelectorAll('#lang-toggle, #lang-toggle-mobile');
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+
+        // Traducir todos los elementos con data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                const icon = el.querySelector('i, svg');
+                if (icon) {
+                    el.innerHTML = '';
+                    el.appendChild(icon);
+                    el.appendChild(document.createTextNode(translations[lang][key]));
+                } else {
+                    el.textContent = translations[lang][key];
+                }
+            }
+        });
+
+        // Cambiar el texto de los botones del toggle
+        langToggles.forEach(toggle => {
+            toggle.textContent = lang === 'es' ? 'EN' : 'ES';
+            toggle.setAttribute('aria-label', lang === 'es' ? 'Cambiar idioma a Inglés' : 'Switch language to Spanish');
+        });
+    }
+
+    // Configurar los botones para cambiar idioma
+    langToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const nextLang = currentLang === 'es' ? 'en' : 'es';
+            document.body.style.opacity = '0.92';
+            document.body.style.transition = 'opacity 0.25s ease';
+            
+            setTimeout(() => {
+                setLanguage(nextLang);
+                document.body.style.opacity = '1';
+            }, 250);
+        });
+    });
+
+    // Cargar idioma inicial
+    setLanguage(currentLang);
 });
 

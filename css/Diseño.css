@@ -155,6 +155,31 @@ img {
     border-color: var(--accent);
 }
 
+/* Selector de Idioma */
+.lang-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-premium);
+    text-transform: uppercase;
+    background: transparent;
+    letter-spacing: 0.05em;
+    font-family: var(--font-body);
+}
+
+.lang-toggle-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--border-color-hover);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
 /* Efectos de Revelado al Scroll */
 .scroll-reveal {
     opacity: 0;

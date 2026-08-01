@@ -24,17 +24,18 @@
             
             <!-- Menú Desktop -->
             <nav class="navbar-menu" id="nav-menu">
-                <a href="#hero" class="menu-link active">Inicio</a>
-                <a href="#about" class="menu-link">Sobre Mí</a>
-                <a href="#skills" class="menu-link">Habilidades</a>
-                <a href="#projects" class="menu-link">Proyectos</a>
-                <a href="#contact" class="menu-link">Contacto</a>
+                <a href="#hero" class="menu-link active" data-i18n="nav-home">Inicio</a>
+                <a href="#about" class="menu-link" data-i18n="nav-about">Sobre Mí</a>
+                <a href="#skills" class="menu-link" data-i18n="nav-skills">Habilidades</a>
+                <a href="#projects" class="menu-link" data-i18n="nav-projects">Proyectos</a>
+                <a href="#contact" class="menu-link" data-i18n="nav-contact">Contacto</a>
             </nav>
 
-            <!-- Botones de Redes Sociales (Desktop) -->
+            <!-- Botones de Redes Sociales y Cambio de Idioma (Desktop) -->
             <div class="navbar-socials" id="nav-socials-desktop">
                 <a href="https://github.com/Josue2004exe" target="_blank" aria-label="GitHub de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/flavio-morales-13131a416/" target="_blank" aria-label="LinkedIn de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <button id="lang-toggle" class="lang-toggle-btn" aria-label="Cambiar idioma a Inglés">EN</button>
             </div>
 
             <!-- Botón Hamburguesa (Móvil Android) -->
@@ -49,15 +50,16 @@
     <!-- Menú Deslizable Móvil (Drawer) -->
     <div class="mobile-drawer" id="mobile-drawer">
         <nav class="drawer-menu">
-            <a href="#hero" class="drawer-link">Inicio</a>
-            <a href="#about" class="drawer-link">Sobre Mí</a>
-            <a href="#skills" class="drawer-link">Habilidades</a>
-            <a href="#projects" class="drawer-link">Proyectos</a>
-            <a href="#contact" class="drawer-link">Contacto</a>
+            <a href="#hero" class="drawer-link" data-i18n="nav-home">Inicio</a>
+            <a href="#about" class="drawer-link" data-i18n="nav-about">Sobre Mí</a>
+            <a href="#skills" class="drawer-link" data-i18n="nav-skills">Habilidades</a>
+            <a href="#projects" class="drawer-link" data-i18n="nav-projects">Proyectos</a>
+            <a href="#contact" class="drawer-link" data-i18n="nav-contact">Contacto</a>
         </nav>
         <div class="drawer-socials">
             <a href="https://github.com/Josue2004exe" target="_blank" aria-label="GitHub de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-github"></i> GitHub</a>
             <a href="https://www.linkedin.com/in/flavio-morales-13131a416/" target="_blank" aria-label="LinkedIn de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            <button id="lang-toggle-mobile" class="lang-toggle-btn" aria-label="Cambiar idioma a Inglés">EN</button>
         </div>
     </div>
     <div class="drawer-overlay" id="drawer-overlay"></div>
@@ -77,19 +79,17 @@
                 <div class="hero-content">
                     <div class="hero-badge fade-in-element">
                         <span class="status-dot"></span>
-                        <span>Disponible para nuevos proyectos</span>
-                        <span class="badge-separator">•</span>
-                        <span>🇪🇨 Ecuador</span>
+                        <span data-i18n="hero-badge">Disponible para nuevos proyectos</span>
                     </div>
                     <h1 class="hero-title fade-in-element">
-                        Hola, soy<br><span class="hero-highlight">Flavio Josueph Morales </span>
+                        <span data-i18n="hero-title-prefix">Hola, soy</span><br><span class="hero-highlight" data-i18n="hero-title-name">Flavio Josueph Morales</span>
                     </h1>
-                    <p class="hero-subtitle fade-in-element">
+                    <p class="hero-subtitle fade-in-element" data-i18n="hero-subtitle">
                         Desarrollador de Software enfocado en el diseño de software para PC, aplicaciones móviles y arquitecturas de Inteligencia Artificial, impulsado por flujos de trabajo modernos de vibe coding.
                     </p>
                     <div class="hero-actions fade-in-element">
-                        <a href="#projects" class="btn btn-primary" id="hero-cta-projects">Ver Proyectos</a>
-                        <a href="#contact" class="btn btn-secondary" id="hero-cta-contact">Contactar</a>
+                        <a href="#projects" class="btn btn-primary" id="hero-cta-projects" data-i18n="hero-btn-projects">Ver Proyectos</a>
+                        <a href="#contact" class="btn btn-secondary" id="hero-cta-contact" data-i18n="hero-btn-contact">Contactar</a>
                     </div>
                 </div>
             </div>
@@ -99,55 +99,55 @@
         <!-- Sección Sobre Mí -->
         <section class="about-section scroll-reveal" id="about">
             <div class="section-container">
-                <h2 class="section-title">Sobre Mí</h2>
+                <h2 class="section-title" data-i18n="about-title">Sobre Mí</h2>
                 <div class="about-grid">
                     <div class="about-card principles-card">
-                        <h3>Principios</h3>
+                        <h3 data-i18n="about-principles-title">Principios</h3>
                         <ul class="principles-list">
                             <li class="principle-item">
                                 <div class="principle-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                                 <div class="principle-text">
-                                    <h4>IA Colaborativa</h4>
-                                    <p>Maximizar el potencial de desarrollo mediante flujos ágiles y vibe coding.</p>
+                                    <h4 data-i18n="about-principle1-title">IA Colaborativa</h4>
+                                    <p data-i18n="about-principle1-desc">Maximizar el potencial de desarrollo mediante flujos ágiles y vibe coding.</p>
                                 </div>
                             </li>
                             <li class="principle-item">
                                 <div class="principle-icon"><i class="fa-solid fa-shield-halved"></i></div>
                                 <div class="principle-text">
-                                    <h4>Código Limpio</h4>
-                                    <p>Lógica estructurada y código legible basado en principios SOLID.</p>
+                                    <h4 data-i18n="about-principle2-title">Código Limpio</h4>
+                                    <p data-i18n="about-principle2-desc">Lógica estructurada y código legible basado en principios SOLID.</p>
                                 </div>
                             </li>
                             <li class="principle-item">
                                 <div class="principle-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
                                 <div class="principle-text">
-                                    <h4>Multiplataforma</h4>
-                                    <p>Aplicaciones eficientes adaptadas tanto a PC como a dispositivos móviles.</p>
+                                    <h4 data-i18n="about-principle3-title">Multiplataforma</h4>
+                                    <p data-i18n="about-principle3-desc">Aplicaciones eficientes adaptadas tanto a PC como a dispositivos móviles.</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="about-card text-card">
-                        <h3>Mi Enfoque</h3>
-                        <p>
+                        <h3 data-i18n="about-approach-title">Mi Enfoque</h3>
+                        <p data-i18n="about-approach-desc1">
                             Como estudiante universitario actualmente cursando el 5to semestre de Ingeniería de Software, combino las bases académicas y el rigor técnico con las últimas herramientas de desarrollo rápido.
                         </p>
-                        <p>
-                            Me apasiona llevar la teoría de algoritmos y lógica a la práctica real mediante la creación de aplicaciones funcionales para PC y móviles. Mi enfoque está en el aprendizaje continuo, experimentando con arquitecturas de IA y adoptando flujos de *vibe coding* para transformar proyectos académicos en soluciones de impacto.
+                        <p data-i18n="about-approach-desc2">
+                            Me apasiona llevar la teoría de algoritmos y lógica a la práctica real mediante la creación de aplicaciones funcionales para PC y móviles. Mi enfoque está en el aprendizaje continuo, experimentando con arquitecturas de IA y adoptando flujos de vibe coding para transformar proyectos académicos en soluciones de impacto.
                         </p>
                     </div>
                     <div class="about-card stats-card">
                         <div class="stat-item">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Años de código</span>
+                            <span class="stat-number" data-i18n="about-stat1-num">2+</span>
+                            <span class="stat-label" data-i18n="about-stat1-lbl">Años de código</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Proyectos terminados</span>
+                            <span class="stat-number" data-i18n="about-stat2-num">3+</span>
+                            <span class="stat-label" data-i18n="about-stat2-lbl">Proyectos terminados</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">99%</span>
-                            <span class="stat-label">Código limpio y probado</span>
+                            <span class="stat-number" data-i18n="about-stat3-num">99%</span>
+                            <span class="stat-label" data-i18n="about-stat3-lbl">Código limpio y probado</span>
                         </div>
                     </div>
                 </div>
@@ -157,14 +157,14 @@
         <!-- Sección Habilidades -->
         <section class="skills-section scroll-reveal" id="skills">
             <div class="section-container">
-                <h2 class="section-title">Habilidades</h2>
-                <p class="section-subtitle">Las tecnologías que utilizo para dar vida a los proyectos.</p>
+                <h2 class="section-title" data-i18n="skills-title">Habilidades</h2>
+                <p class="section-subtitle" data-i18n="skills-subtitle">Las tecnologías que utilizo para dar vida a los proyectos.</p>
                 <div class="skills-grid">
                     <!-- Tarjeta 1: Android -->
                     <div class="skill-card">
                         <div class="skill-icon icon-android"><i class="fa-brands fa-android"></i></div>
-                        <h3>Desarrollo Android</h3>
-                        <p>Creación de aplicaciones nativas en Kotlin, uso de Jetpack Compose, viewmodels y manejo seguro de almacenamiento local.</p>
+                        <h3 data-i18n="skills-android-title">Desarrollo Android</h3>
+                        <p data-i18n="skills-android-desc">Creación de aplicaciones nativas en Kotlin, uso de Jetpack Compose, viewmodels y manejo seguro de almacenamiento local.</p>
                         <div class="skill-tags">
                             <span class="skill-tag"><i class="fa-solid fa-code icon-kotlin"></i> Kotlin</span>
                             <span class="skill-tag"><i class="fa-solid fa-cubes icon-compose"></i> Jetpack Compose</span>
@@ -175,8 +175,8 @@
                     <!-- Tarjeta 2: IA -->
                     <div class="skill-card">
                         <div class="skill-icon icon-ai"><i class="fa-solid fa-brain"></i></div>
-                        <h3>Inteligencia Artificial</h3>
-                        <p>Integración de APIs de Modelos de Lenguaje (LLMs) como Gemini, análisis semántico de datos y automatización inteligente.</p>
+                        <h3 data-i18n="skills-ai-title">Inteligencia Artificial</h3>
+                        <p data-i18n="skills-ai-desc">Integración de APIs de Modelos de Lenguaje (LLMs) como Gemini, análisis semántico de datos y automatización inteligente.</p>
                         <div class="skill-tags">
                             <span class="skill-tag"><svg class="gemini-logo-svg" viewBox="0 0 24 24"><defs><linearGradient id="gemini-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1A73E8" /><stop offset="50%" stop-color="#9B5DE5" /><stop offset="100%" stop-color="#F15BB5" /></linearGradient></defs><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg> Gemini API</span>
                             <span class="skill-tag"><i class="fa-brands fa-python icon-python"></i> Python</span>
@@ -187,8 +187,8 @@
                     <!-- Tarjeta 3: Bases de Datos & Backend -->
                     <div class="skill-card">
                         <div class="skill-icon icon-pc"><i class="fa-solid fa-database"></i></div>
-                        <h3>Bases de Datos & Backend</h3>
-                        <p>Diseño y administración de bases de datos relacionales, optimización de consultas SQL complejas y lógica de almacenamiento estructurado.</p>
+                        <h3 data-i18n="skills-db-title">Bases de Datos & Backend</h3>
+                        <p data-i18n="skills-db-desc">Diseño y administración de bases de datos relacionales, optimización de consultas SQL complejas y lógica de almacenamiento estructurado.</p>
                         <div class="skill-tags">
                             <span class="skill-tag"><i class="fa-solid fa-server icon-sqlserver"></i> SQL Server</span>
                             <span class="skill-tag"><i class="fa-brands fa-python icon-python"></i> Python</span>
@@ -198,6 +198,16 @@
                     </div>
                     <!-- Tarjeta 4: Entornos & Herramientas -->
                     <div class="skill-card">
+                        <div class="skill-icon icon-frontend"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3 data-i18n="skills-tools-title">Entornos & Herramientas</h3>
+                        <p data-i18n="skills-tools-desc">Desarrollo ágil asistido por agentes inteligentes y entornos modernos que optimizan la productividad en el ciclo de vida del software.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-solid fa-u icon-antigravity"></i> Antigravity IDE</span>
+                            <span class="skill-tag"><i class="fa-brands fa-github icon-git"></i> Git / GitHub</span>
+                            <span class="skill-tag"><i class="fa-solid fa-file-code icon-vscode"></i> VS Code</span>
+                            <span class="skill-tag"><i class="fa-solid fa-bolt icon-vibe"></i> Vibe Coding</span>
+                        </div>
+                    </div>
                         <div class="skill-icon icon-frontend"><i class="fa-solid fa-laptop-code"></i></div>
                         <h3>Entornos & Herramientas</h3>
                         <p>Desarrollo ágil asistido por agentes inteligentes y entornos modernos que optimizan la productividad en el ciclo de vida del software.</p>
@@ -215,15 +225,15 @@
         <!-- Sección Proyectos -->
         <section class="projects-section scroll-reveal" id="projects">
             <div class="section-container">
-                <h2 class="section-title">Proyectos destacados</h2>
-                <p class="section-subtitle">Una selección de las aplicaciones que he diseñado y programado.</p>
+                <h2 class="section-title" data-i18n="projects-title">Proyectos destacados</h2>
+                <p class="section-subtitle" data-i18n="projects-subtitle">Una selección de las aplicaciones que he diseñado y programado.</p>
                 
                 <!-- Filtros de Proyectos -->
                 <div class="projects-filters">
-                    <button class="filter-btn active" data-filter="all" id="btn-filter-all">Todos</button>
-                    <button class="filter-btn" data-filter="android" id="btn-filter-android">Android</button>
-                    <button class="filter-btn" data-filter="ai" id="btn-filter-ai">IA</button>
-                    <button class="filter-btn" data-filter="web" id="btn-filter-web">Web</button>
+                    <button class="filter-btn active" data-filter="all" id="btn-filter-all" data-i18n="projects-filter-all">Todos</button>
+                    <button class="filter-btn" data-filter="android" id="btn-filter-android" data-i18n="projects-filter-android">Android</button>
+                    <button class="filter-btn" data-filter="ai" id="btn-filter-ai" data-i18n="projects-filter-ai">IA</button>
+                    <button class="filter-btn" data-filter="web" id="btn-filter-web" data-i18n="projects-filter-web">Web</button>
                 </div>
 
                 <!-- Grid de Proyectos -->
@@ -234,14 +244,14 @@
                             <img src="assets/images/dupcleaner.png" alt="Logo de DupCleaner" class="project-logo">
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">Android / Kotlin</span>
-                            <h3 class="project-card-title">DupCleaner</h3>
-                            <p class="project-card-desc">
+                            <span class="project-tag" data-i18n="project1-tag">Android / Kotlin</span>
+                            <h3 class="project-card-title" data-i18n="project1-title">DupCleaner</h3>
+                            <p class="project-card-desc" data-i18n="project1-desc">
                                 Aplicación Android nativa en Kotlin y Jetpack Compose (MVVM). Escanea la agenda del dispositivo para agrupar y depurar de forma inteligente contactos duplicados, permitiendo un borrado masivo y seguro que protege el registro original.
                             </p>
                             <div class="project-links">
-                                <button class="project-link-btn play-demo-btn" data-video="assets/videos/0731.mp4" aria-label="Ver demostración en video de DupCleaner"><i class="fa-solid fa-play"></i> Demo</button>
-                                <span class="project-link-btn disabled-btn" aria-label="Lanzamiento próximamente en Google Play"><i class="fa-brands fa-google-play"></i> Próximamente</span>
+                                <button class="project-link-btn play-demo-btn" data-video="assets/videos/0731.mp4" aria-label="Ver demostración en video de DupCleaner"><i class="fa-solid fa-play"></i> <span data-i18n="project1-demo"> Demo</span></button>
+                                <span class="project-link-btn disabled-btn" aria-label="Lanzamiento próximamente en Google Play"><i class="fa-brands fa-google-play"></i> <span data-i18n="project1-soon"> Próximamente</span></span>
                             </div>
                         </div>
                     </article>
@@ -252,13 +262,13 @@
                             <img src="assets/images/ai_assistant.png" alt="Visual de AI Semantic Assistant" class="project-img">
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">Inteligencia Artificial</span>
-                            <h3 class="project-card-title">AI Semantic Assistant</h3>
-                            <p class="project-card-desc">
+                            <span class="project-tag" data-i18n="project2-tag">Inteligencia Artificial</span>
+                            <h3 class="project-card-title" data-i18n="project2-title">AI Semantic Assistant</h3>
+                            <p class="project-card-desc" data-i18n="project2-desc">
                                 Asistente inteligente capaz de analizar, estructurar y clasificar grandes volúmenes de texto de manera semántica. Integra APIs de procesamiento de lenguaje natural y automatiza reportes.
                             </p>
                             <div class="project-links">
-                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de AI Semantic Assistant en GitHub"><i class="fa-brands fa-github"></i> Código</a>
+                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de AI Semantic Assistant en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project2-code"> Código</span></a>
                             </div>
                         </div>
                     </article>
@@ -269,13 +279,13 @@
                             <img src="assets/images/taskflow.png" alt="Visual de TaskFlow Dashboard" class="project-img">
                         </div>
                         <div class="project-info">
-                            <span class="project-tag">Desarrollo Web</span>
-                            <h3 class="project-card-title">TaskFlow Dashboard</h3>
-                            <p class="project-card-desc">
+                            <span class="project-tag" data-i18n="project3-tag">Desarrollo Web</span>
+                            <h3 class="project-card-title" data-i18n="project3-title">TaskFlow Dashboard</h3>
+                            <p class="project-card-desc" data-i18n="project3-desc">
                                 Panel web de productividad con interfaz de cristal (glassmorphism) de alto rendimiento. Totalmente interactivo, responsivo y construido sin dependencias externas pesadas.
                             </p>
                             <div class="project-links">
-                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de TaskFlow Dashboard en GitHub"><i class="fa-brands fa-github"></i> Código</a>
+                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de TaskFlow Dashboard en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project3-code"> Código</span></a>
                             </div>
                         </div>
                     </article>
@@ -286,25 +296,25 @@
         <!-- Sección Contacto -->
         <section class="contact-section scroll-reveal" id="contact">
             <div class="section-container">
-                <h2 class="section-title">Hablemos</h2>
-                <p class="section-subtitle">¿Tienes un proyecto en mente o una propuesta laboral? Escríbeme.</p>
+                <h2 class="section-title" data-i18n="contact-title">Hablemos</h2>
+                <p class="section-subtitle" data-i18n="contact-subtitle">¿Tienes un proyecto en mente o una propuesta laboral? Escríbeme.</p>
                 <div class="contact-grid">
                     <div class="contact-info-panel">
-                        <h3>Información de Contacto</h3>
-                        <p>Escríbeme directamente o encuéntrame en mis redes profesionales.</p>
+                        <h3 data-i18n="contact-info-title">Información de Contacto</h3>
+                        <p data-i18n="contact-info-desc">Escríbeme directamente o encuéntrame en mis redes profesionales.</p>
                         <div class="info-list">
                             <div class="info-item">
                                 <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                                 <div class="info-text">
-                                    <span class="info-label">Correo</span>
+                                    <span class="info-label" data-i18n="contact-info-email">Correo</span>
                                     <a href="mailto:alexpc778@gmail.com" class="info-link">alexpc778@gmail.com</a>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                                 <div class="info-text">
-                                    <span class="info-label">Ubicación</span>
-                                    <span class="info-val">Ecuador</span>
+                                    <span class="info-label" data-i18n="contact-info-location">Ubicación</span>
+                                    <span class="info-val" data-i18n="contact-info-location-val">Ecuador</span>
                                 </div>
                             </div>
                         </div>
@@ -313,20 +323,20 @@
                         <form id="contact-form" action="#" method="POST" novalidate>
                             <div class="form-group">
                                 <input type="text" id="form-name" name="name" required placeholder=" " aria-required="true">
-                                <label for="form-name">Nombre</label>
+                                <label for="form-name" data-i18n="form-placeholder-name">Nombre</label>
                                 <span class="error-msg" id="error-name">Por favor ingresa tu nombre</span>
                             </div>
                             <div class="form-group">
                                 <input type="email" id="form-email" name="email" required placeholder=" " aria-required="true">
-                                <label for="form-email">Email</label>
+                                <label for="form-email" data-i18n="form-placeholder-email">Email</label>
                                 <span class="error-msg" id="error-email">Por favor ingresa un email válido</span>
                             </div>
                             <div class="form-group">
                                 <textarea id="form-message" name="message" required rows="5" placeholder=" " aria-required="true"></textarea>
-                                <label for="form-message">Mensaje</label>
+                                <label for="form-message" data-i18n="form-placeholder-message">Mensaje</label>
                                 <span class="error-msg" id="error-message">El mensaje no puede estar vacío</span>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-submit" id="btn-submit-form">Enviar Mensaje</button>
+                            <button type="submit" class="btn btn-primary btn-submit" id="btn-submit-form" data-i18n="form-btn-submit">Enviar Mensaje</button>
                         </form>
                     </div>
                 </div>
@@ -337,7 +347,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p class="footer-copyright">&copy; 2026 Flavio Morales. Todos los derechos reservados.</p>
+            <p class="footer-copyright" data-i18n="footer-copyright">&copy; 2026 Flavio Morales. Todos los derechos reservados.</p>
             <div class="footer-socials">
                 <a href="https://github.com/Josue2004exe" target="_blank" aria-label="GitHub de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/flavio-morales-13131a416/" target="_blank" aria-label="LinkedIn de Flavio Morales" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
