@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 9. SOPORTE TÁCTIL PARA EFECTOS HOVER EN MÓVILES ---
-    const touchElements = document.querySelectorAll('.skill-card, .project-card, .about-card, .hero-image-card, .skill-tag');
+    const touchElements = document.querySelectorAll('.skill-card, .project-card, .about-card, .hero-image-card, .skill-tag, .principle-item');
     let isScrolling = false;
 
     // Detectar si el usuario está haciendo scroll para cancelar los hovers táctiles
