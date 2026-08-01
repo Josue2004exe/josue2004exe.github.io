@@ -1056,27 +1056,32 @@ CONTACTO
 
 .form-group {
     position: relative;
-    margin-bottom: 32px;
+    margin-bottom: 34px;
 }
 
 .form-group input, .form-group textarea {
     width: 100%;
-    padding: 12px 0;
-    font-size: 1rem;
-    border-bottom: 1px solid var(--border-color);
+    padding: 20px 16px 8px;
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
     outline: none;
     transition: var(--transition-premium);
+    font-family: var(--font-body);
 }
 
 .form-group textarea {
+    padding-top: 24px;
     resize: none;
 }
 
 .form-group label {
     position: absolute;
-    top: 12px;
-    left: 0;
-    font-size: 1rem;
+    top: 14px;
+    left: 16px;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     pointer-events: none;
     transition: var(--transition-premium);
@@ -1087,22 +1092,26 @@ CONTACTO
 .form-group input:not(:placeholder-shown) ~ label,
 .form-group textarea:focus ~ label,
 .form-group textarea:not(:placeholder-shown) ~ label {
-    top: -12px;
-    font-size: 0.75rem;
+    top: 6px;
+    left: 16px;
+    font-size: 0.68rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-primary);
 }
 
 .form-group input:focus, .form-group textarea:focus {
-    border-bottom-color: var(--accent);
+    border-color: var(--border-color-hover);
+    background-color: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 0 1px var(--border-color-hover);
 }
 
 /* Mensajes de Error */
 .error-msg {
     position: absolute;
     bottom: -18px;
-    left: 0;
+    left: 16px;
     font-size: 0.75rem;
     color: #ff453a;
     opacity: 0;
@@ -1110,7 +1119,8 @@ CONTACTO
 }
 
 .form-group.invalid input, .form-group.invalid textarea {
-    border-bottom-color: #ff453a;
+    border-color: #ff453a;
+    background-color: rgba(255, 69, 58, 0.02);
 }
 
 .form-group.invalid .error-msg {
