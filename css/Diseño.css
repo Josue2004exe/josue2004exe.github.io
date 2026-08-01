@@ -1183,7 +1183,7 @@ CONTACTO
     display: inline-block;
 }
 
-/* Antigravity IDE (Letra A Invertida de cabeza - Logo Oficial) */
+/* Antigravity IDE (Curva e inclinación de gravedad - Logo Oficial) */
 .icon-antigravity {
     transform: rotate(180deg);
     display: inline-block !important;
@@ -1191,11 +1191,11 @@ CONTACTO
 
 .skill-card:hover .icon-antigravity,
 .skill-tag:hover .icon-antigravity {
-    background: linear-gradient(135deg, #4285F4 0%, #34A853 30%, #FBBC05 60%, #EA4335 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to bottom, #4285F4 0%, #4285F4 40%, #34A853 60%, #FBBC05 80%, #EA4335 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
     display: inline-block !important;
-    transform: rotate(180deg);
+    transform: rotate(180deg) !important;
 }
 
 /* Git / GitHub (Naranja Git a Blanco) */
