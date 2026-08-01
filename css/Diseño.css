@@ -1073,6 +1073,16 @@ CONTACTO
     transition: var(--transition-premium);
 }
 
+.gemini-logo-svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    display: inline-block;
+    vertical-align: middle;
+    transition: var(--transition-premium);
+    fill: currentColor;
+    color: inherit;
+}
+
 .skill-card:hover .skill-tag {
     color: var(--text-primary);
     border-color: rgba(255, 255, 255, 0.18);
@@ -1103,8 +1113,8 @@ CONTACTO
 }
 
 /* Android Studio (Verde Android brillante) */
-.skill-card:hover .icon-android,
-.skill-tag:hover .icon-android {
+.skill-card:hover .icon-android-studio,
+.skill-tag:hover .icon-android-studio {
     background: linear-gradient(135deg, #3DDC84 30%, #10b981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
