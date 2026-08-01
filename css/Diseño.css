@@ -441,13 +441,15 @@ img {
     transition: var(--transition-premium);
 }
 
-.hero-image-card:hover {
+.hero-image-card:hover,
+.hero-image-card.touch-hover {
     border-color: var(--border-color-hover);
     transform: scale(1.02) translateY(-4px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 255, 255, 0.03);
 }
 
-.hero-image-card:hover .hero-profile-img {
+.hero-image-card:hover .hero-profile-img,
+.hero-image-card.touch-hover .hero-profile-img {
     filter: grayscale(0%);
 }
 
@@ -590,7 +592,8 @@ SOBRE MÍ
     transition: var(--transition-premium);
 }
 
-.about-card.image-card:hover .profile-img {
+.about-card.image-card:hover .profile-img,
+.about-card.image-card.touch-hover .profile-img {
     filter: grayscale(0%);
     transform: scale(1.02);
 }
@@ -603,7 +606,8 @@ SOBRE MÍ
     transition: var(--transition-premium);
 }
 
-.about-card:hover {
+.about-card:hover,
+.about-card.touch-hover {
     border-color: var(--border-color-hover);
     background-color: var(--bg-card-hover);
 }
@@ -672,7 +676,8 @@ SOBRE MÍ
     text-align: center;
 }
 
-.skill-card:hover {
+.skill-card:hover,
+.skill-card.touch-hover {
     border-color: var(--accent);
     transform: translateY(-4px);
     background-color: var(--bg-card-hover);
@@ -687,7 +692,8 @@ SOBRE MÍ
     display: inline-block;
 }
 
-.skill-card:hover .skill-icon {
+.skill-card:hover .skill-icon,
+.skill-card.touch-hover .skill-icon {
     filter: grayscale(0%);
     opacity: 1;
     transform: scale(1.1);
@@ -766,7 +772,8 @@ SOBRE MÍ
     transition: var(--transition-premium);
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card.touch-hover {
     border-color: var(--border-color-hover);
     background-color: var(--bg-card-hover);
     transform: translateY(-2px);
@@ -789,7 +796,8 @@ SOBRE MÍ
     transition: var(--transition-premium);
 }
 
-.project-card:hover .project-image-placeholder {
+.project-card:hover .project-image-placeholder,
+.project-card.touch-hover .project-image-placeholder {
     color: var(--text-primary);
     background: linear-gradient(135deg, #2c2c2e 0%, #121212 100%);
 }
@@ -812,12 +820,14 @@ SOBRE MÍ
     transition: var(--transition-premium);
 }
 
-.project-card:hover .project-img {
+.project-card:hover .project-img,
+.project-card.touch-hover .project-img {
     filter: grayscale(0%);
     transform: scale(1.05);
 }
 
-.project-card:hover .project-logo {
+.project-card:hover .project-logo,
+.project-card.touch-hover .project-logo {
     filter: grayscale(0%) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
     transform: scale(1.08);
 }
@@ -1083,7 +1093,8 @@ CONTACTO
     color: inherit;
 }
 
-.skill-card:hover .skill-tag {
+.skill-card:hover .skill-tag,
+.skill-card.touch-hover .skill-tag {
     color: var(--text-primary);
     border-color: rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.06);
@@ -1096,7 +1107,9 @@ CONTACTO
 
 /* Kotlin (Morado a Naranja) */
 .skill-card:hover .icon-kotlin,
-.skill-tag:hover .icon-kotlin {
+.skill-card.touch-hover .icon-kotlin,
+.skill-tag:hover .icon-kotlin,
+.skill-tag.touch-hover .icon-kotlin {
     background: linear-gradient(135deg, #FF8900 0%, #FF2B7F 50%, #7F52FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1105,7 +1118,9 @@ CONTACTO
 
 /* Jetpack Compose (Azul Google a Verde Android) */
 .skill-card:hover .icon-compose,
-.skill-tag:hover .icon-compose {
+.skill-card.touch-hover .icon-compose,
+.skill-tag:hover .icon-compose,
+.skill-tag.touch-hover .icon-compose {
     background: linear-gradient(135deg, #4285F4 20%, #3DDC84 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1114,7 +1129,9 @@ CONTACTO
 
 /* Android Studio (Verde Android brillante) */
 .skill-card:hover .icon-android-studio,
-.skill-tag:hover .icon-android-studio {
+.skill-card.touch-hover .icon-android-studio,
+.skill-tag:hover .icon-android-studio,
+.skill-tag.touch-hover .icon-android-studio {
     background: linear-gradient(135deg, #3DDC84 30%, #10b981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1123,7 +1140,9 @@ CONTACTO
 
 /* Room DB (Azul a Turquesa Google Cloud) */
 .skill-card:hover .icon-room,
-.skill-tag:hover .icon-room {
+.skill-card.touch-hover .icon-room,
+.skill-tag:hover .icon-room,
+.skill-tag.touch-hover .icon-room {
     background: linear-gradient(135deg, #4285F4 30%, #00f2fe 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1137,13 +1156,17 @@ CONTACTO
 }
 
 .skill-card:hover .gemini-logo-svg path,
-.skill-tag:hover .gemini-logo-svg path {
+.skill-card.touch-hover .gemini-logo-svg path,
+.skill-tag:hover .gemini-logo-svg path,
+.skill-tag.touch-hover .gemini-logo-svg path {
     fill: url(#gemini-grad) !important;
 }
 
 /* Python (Azul y Amarillo oficiales) */
 .skill-card:hover .icon-python,
-.skill-tag:hover .icon-python { 
+.skill-card.touch-hover .icon-python,
+.skill-tag:hover .icon-python,
+.skill-tag.touch-hover .icon-python { 
     background: linear-gradient(135deg, #3776AB 45%, #FFD343 55%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1152,7 +1175,9 @@ CONTACTO
 
 /* NLP (Turquesa a Azul brillante) */
 .skill-card:hover .icon-nlp,
-.skill-tag:hover .icon-nlp {
+.skill-card.touch-hover .icon-nlp,
+.skill-tag:hover .icon-nlp,
+.skill-tag.touch-hover .icon-nlp {
     background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1161,7 +1186,9 @@ CONTACTO
 
 /* Prompting (Verde Neón a Cian) */
 .skill-card:hover .icon-prompting,
-.skill-tag:hover .icon-prompting {
+.skill-card.touch-hover .icon-prompting,
+.skill-tag:hover .icon-prompting,
+.skill-tag.touch-hover .icon-prompting {
     background: linear-gradient(135deg, #39ff14 30%, #00f2fe 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1170,7 +1197,9 @@ CONTACTO
 
 /* SQL Server (Rojo Microsoft a Naranja brillante) */
 .skill-card:hover .icon-sqlserver,
-.skill-tag:hover .icon-sqlserver {
+.skill-card.touch-hover .icon-sqlserver,
+.skill-tag:hover .icon-sqlserver,
+.skill-tag.touch-hover .icon-sqlserver {
     background: linear-gradient(135deg, #CC292B 30%, #ff4b4b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1179,7 +1208,9 @@ CONTACTO
 
 /* SQLite (Azul SQLite a Azul profundo) */
 .skill-card:hover .icon-sqlite,
-.skill-tag:hover .icon-sqlite {
+.skill-card.touch-hover .icon-sqlite,
+.skill-tag:hover .icon-sqlite,
+.skill-tag.touch-hover .icon-sqlite {
     background: linear-gradient(135deg, #0f80cc 20%, #003B57 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1188,7 +1219,9 @@ CONTACTO
 
 /* C# / .NET (Morado Microsoft a Violeta brillante) */
 .skill-card:hover .icon-csharp,
-.skill-tag:hover .icon-csharp {
+.skill-card.touch-hover .icon-csharp,
+.skill-tag:hover .icon-csharp,
+.skill-tag.touch-hover .icon-csharp {
     background: linear-gradient(135deg, #512BD4 30%, #7F52FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1202,7 +1235,9 @@ CONTACTO
 }
 
 .skill-card:hover .icon-antigravity,
-.skill-tag:hover .icon-antigravity {
+.skill-card.touch-hover .icon-antigravity,
+.skill-tag:hover .icon-antigravity,
+.skill-tag.touch-hover .icon-antigravity {
     background: linear-gradient(to bottom, #4285F4 0%, #4285F4 40%, #34A853 60%, #FBBC05 80%, #EA4335 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
@@ -1212,7 +1247,9 @@ CONTACTO
 
 /* Git / GitHub (Naranja Git a Blanco) */
 .skill-card:hover .icon-git,
-.skill-tag:hover .icon-git {
+.skill-card.touch-hover .icon-git,
+.skill-tag:hover .icon-git,
+.skill-tag.touch-hover .icon-git {
     background: linear-gradient(135deg, #F05032 40%, #ffffff 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1221,7 +1258,9 @@ CONTACTO
 
 /* VS Code (Azul VS Code a Morado) */
 .skill-card:hover .icon-vscode,
-.skill-tag:hover .icon-vscode {
+.skill-card.touch-hover .icon-vscode,
+.skill-tag:hover .icon-vscode,
+.skill-tag.touch-hover .icon-vscode {
     background: linear-gradient(135deg, #007ACC 30%, #5C2D91 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1230,7 +1269,9 @@ CONTACTO
 
 /* Vibe Coding (Amarillo eléctrico a Rojo neón) */
 .skill-card:hover .icon-vibe,
-.skill-tag:hover .icon-vibe {
+.skill-card.touch-hover .icon-vibe,
+.skill-tag:hover .icon-vibe,
+.skill-tag.touch-hover .icon-vibe {
     background: linear-gradient(135deg, #FFD166 30%, #FF6B6B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

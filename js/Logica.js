@@ -310,4 +310,46 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
+
+    // --- 9. SOPORTE TÁCTIL PARA EFECTOS HOVER EN MÓVILES ---
+    const touchElements = document.querySelectorAll('.skill-card, .project-card, .about-card, .hero-image-card, .skill-tag');
+    let isScrolling = false;
+
+    // Detectar si el usuario está haciendo scroll para cancelar los hovers táctiles
+    window.addEventListener('scroll', () => {
+        isScrolling = true;
+        document.querySelectorAll('.touch-hover').forEach(el => {
+            el.classList.remove('touch-hover');
+        });
+    }, { passive: true });
+
+    touchElements.forEach(el => {
+        el.addEventListener('touchstart', () => {
+            isScrolling = false;
+            // Limpiar otros elementos activos antes de encender este
+            document.querySelectorAll('.touch-hover').forEach(otherEl => {
+                if (otherEl !== el) otherEl.classList.remove('touch-hover');
+            });
+            el.classList.add('touch-hover');
+        }, { passive: true });
+
+        el.addEventListener('touchmove', () => {
+            // Si el dedo se mueve, interpretamos que el usuario está desplazándose y quitamos el hover
+            el.classList.remove('touch-hover');
+        }, { passive: true });
+
+        el.addEventListener('touchend', () => {
+            // Un pequeño retraso para percibir el cambio de color al hacer tap
+            setTimeout(() => {
+                if (!isScrolling) {
+                    el.classList.remove('touch-hover');
+                }
+            }, 300);
+        }, { passive: true });
+
+        el.addEventListener('touchcancel', () => {
+            el.classList.remove('touch-hover');
+        }, { passive: true });
+    });
 });
+
