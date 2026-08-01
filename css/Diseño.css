@@ -1130,13 +1130,15 @@ CONTACTO
     display: inline-block;
 }
 
-/* Gemini API (Azul, Morado y Rosa de Gemini) */
-.skill-card:hover .icon-gemini,
-.skill-tag:hover .icon-gemini {
-    background: linear-gradient(135deg, #1A73E8 10%, #9B5DE5 50%, #F15BB5 90%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+/* Gemini API (Chispa de 4 Puntas con Degradado Real) */
+.gemini-logo-svg path {
+    fill: currentColor;
+    transition: fill var(--transition-premium);
+}
+
+.skill-card:hover .gemini-logo-svg path,
+.skill-tag:hover .gemini-logo-svg path {
+    fill: url(#gemini-grad) !important;
 }
 
 /* Python (Azul y Amarillo oficiales) */
