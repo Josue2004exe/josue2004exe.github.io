@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio profesional de Flavio Morales. Desarrollador de Software e Inteligencia Artificial. Diseños premium, interfaces fluidas y soluciones nativas.">
+    <meta name="description" content="Portafolio profesional de Flavio Morales. Desarrollador de Software enfocado en aplicaciones móviles Android (Kotlin), IA y desarrollo de software con código limpio y vibe coding.">
     <meta name="author" content="Flavio Morales">
     <title>Flavio Morales | Portafolio Profesional</title>
+    
+    <!-- Favicon Personalizado -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    
+    <!-- Open Graph / Redes Sociales (WhatsApp, LinkedIn, Discord, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://josue2004exe.github.io/">
+    <meta property="og:title" content="Flavio Morales | Portafolio Profesional">
+    <meta property="og:description" content="Desarrollador de Software e Inteligencia Artificial. Android nativo (Kotlin), Python, SQL Server y soluciones rápidas de vibe coding.">
+    <meta property="og:image" content="https://josue2004exe.github.io/assets/images/profile.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flavio Morales | Portafolio Profesional">
+    <meta name="twitter:description" content="Desarrollador de Software e Inteligencia Artificial. Conoce mis proyectos y trayectoria técnica.">
+    <meta name="twitter:image" content="https://josue2004exe.github.io/assets/images/profile.jpg">
+
+    <!-- Schema.org JSON-LD para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Flavio Josueph Morales",
+      "url": "https://josue2004exe.github.io/",
+      "sameAs": [
+        "https://github.com/Josue2004exe",
+        "https://www.linkedin.com/in/flavio-morales-13131a416/"
+      ],
+      "jobTitle": "Software Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance / Estudiante de Ingeniería de Software"
+      }
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +49,7 @@
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/Diseño.css?v=2.0">
+    <link rel="stylesheet" href="css/Diseño.css?v=2.1">
 </head>
 <body>
 
@@ -89,6 +125,7 @@
                     </p>
                     <div class="hero-actions fade-in-element">
                         <a href="#projects" class="btn btn-primary" id="hero-cta-projects" data-i18n="hero-btn-projects">Ver Proyectos</a>
+                        <a href="assets/docs/CV_Flavio_Morales.pdf" target="_blank" class="btn btn-outline" id="hero-cta-cv" download><i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="hero-btn-cv">Descargar CV</span></a>
                         <a href="#contact" class="btn btn-secondary" id="hero-cta-contact" data-i18n="hero-btn-contact">Contactar</a>
                     </div>
                 </div>
@@ -280,6 +317,12 @@
                             <p class="project-card-desc" data-i18n="project1-desc">
                                 Aplicación Android nativa en Kotlin y Jetpack Compose (MVVM). Escanea la agenda del dispositivo para agrupar y depurar de forma inteligente contactos duplicados, permitiendo un borrado masivo y seguro que protege el registro original.
                             </p>
+                            <div class="project-tech-badges">
+                                <span class="project-badge"><i class="fa-solid fa-code"></i> Kotlin</span>
+                                <span class="project-badge"><i class="fa-solid fa-cubes"></i> Jetpack Compose</span>
+                                <span class="project-badge"><i class="fa-solid fa-database"></i> Room DB</span>
+                                <span class="project-badge"><i class="fa-solid fa-layer-group"></i> MVVM</span>
+                            </div>
                             <div class="project-links">
                                 <button class="project-link-btn play-demo-btn" data-video="assets/videos/0731.mp4" aria-label="Ver demostración en video de DupCleaner"><i class="fa-solid fa-play"></i> <span data-i18n="project1-demo"> Demo</span></button>
                                 <span class="project-link-btn disabled-btn" aria-label="Lanzamiento próximamente en Google Play"><i class="fa-brands fa-google-play"></i> <span data-i18n="project1-soon"> Próximamente</span></span>
@@ -298,6 +341,12 @@
                             <p class="project-card-desc" data-i18n="project2-desc">
                                 Asistente inteligente capaz de analizar, estructurar y clasificar grandes volúmenes de texto de manera semántica. Integra APIs de procesamiento de lenguaje natural y automatiza reportes.
                             </p>
+                            <div class="project-tech-badges">
+                                <span class="project-badge"><i class="fa-brands fa-python"></i> Python</span>
+                                <span class="project-badge"><i class="fa-solid fa-brain"></i> Gemini API</span>
+                                <span class="project-badge"><i class="fa-solid fa-language"></i> NLP</span>
+                                <span class="project-badge"><i class="fa-solid fa-bolt"></i> Async</span>
+                            </div>
                             <div class="project-links">
                                 <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de AI Semantic Assistant en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project2-code"> Código</span></a>
                             </div>
@@ -315,6 +364,11 @@
                             <p class="project-card-desc" data-i18n="project3-desc">
                                 Panel web de productividad con interfaz de cristal (glassmorphism) de alto rendimiento. Totalmente interactivo, responsivo y construido sin dependencias externas pesadas.
                             </p>
+                            <div class="project-tech-badges">
+                                <span class="project-badge"><i class="fa-brands fa-html5"></i> HTML5/CSS3</span>
+                                <span class="project-badge"><i class="fa-brands fa-js"></i> Vanilla JS</span>
+                                <span class="project-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Glassmorphism</span>
+                            </div>
                             <div class="project-links">
                                 <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de TaskFlow Dashboard en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project3-code"> Código</span></a>
                             </div>
@@ -334,11 +388,16 @@
                         <h3 data-i18n="contact-info-title">Información de Contacto</h3>
                         <p data-i18n="contact-info-desc">Escríbeme directamente o encuéntrame en mis redes profesionales.</p>
                         <div class="info-list">
-                            <div class="info-item">
+                            <div class="info-item" id="email-info-item">
                                 <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                                 <div class="info-text">
                                     <span class="info-label" data-i18n="contact-info-email">Correo</span>
-                                    <a href="mailto:alexpc778@gmail.com" class="info-link">alexpc778@gmail.com</a>
+                                    <div class="email-copy-container">
+                                        <a href="mailto:alexpc778@gmail.com" class="info-link" id="contact-email-link">alexpc778@gmail.com</a>
+                                        <button type="button" class="copy-email-btn" id="copy-email-btn" aria-label="Copiar correo al portapapeles" title="Copiar correo">
+                                            <i class="fa-regular fa-copy"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="info-item">
@@ -386,6 +445,17 @@
         </div>
     </footer>
 
+    <!-- Botón Flotante Volver Arriba -->
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Notificación Toast Flotante -->
+    <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-text" data-i18n="toast-copied">¡Correo copiado al portapapeles!</span>
+    </div>
+
     <!-- Modal para Demostración en Video -->
     <div class="video-modal" id="video-modal">
         <div class="video-modal-content">
@@ -400,6 +470,6 @@
     </div>
 
     <!-- Script JS -->
-    <script src="js/Logica.js?v=2.0"></script>
+    <script src="js/Logica.js?v=2.1"></script>
 </body>
 </html>

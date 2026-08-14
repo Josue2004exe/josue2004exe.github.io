@@ -352,7 +352,87 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     });
 
-    // --- 10. SISTEMA MULTILENGUAJE (ESPAÑOL / INGLÉS) ---
+    // --- 10. COPIAR CORREO AL PORTAPAPELES Y NOTIFICACIÓN TOAST ---
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const toastNotification = document.getElementById('toast-notification');
+    let toastTimeout;
+
+    function showToast(message) {
+        if (!toastNotification) return;
+        const toastText = document.getElementById('toast-text');
+        if (toastText && message) {
+            toastText.textContent = message;
+        }
+        
+        toastNotification.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toastNotification.classList.remove('show');
+        }, 3000);
+    }
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const emailToCopy = 'alexpc778@gmail.com';
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(emailToCopy);
+                } else {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = emailToCopy;
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                }
+                
+                // Efecto visual en botón
+                copyEmailBtn.classList.add('copied');
+                const copyIcon = copyEmailBtn.querySelector('i');
+                if (copyIcon) {
+                    copyIcon.classList.remove('fa-copy', 'fa-regular');
+                    copyIcon.classList.add('fa-solid', 'fa-check');
+                }
+                
+                const toastMsg = currentLang === 'en' ? 'Email copied to clipboard!' : '¡Correo copiado al portapapeles!';
+                showToast(toastMsg);
+
+                setTimeout(() => {
+                    copyEmailBtn.classList.remove('copied');
+                    if (copyIcon) {
+                        copyIcon.classList.remove('fa-solid', 'fa-check');
+                        copyIcon.classList.add('fa-regular', 'fa-copy');
+                    }
+                }, 2000);
+            } catch (err) {
+                console.error('Error al copiar correo:', err);
+            }
+        });
+    }
+
+    // --- 11. BOTÓN FLOTANTE VOLVER ARRIBA (BACK TO TOP) ---
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 350) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // --- 12. SISTEMA MULTILENGUAJE (ESPAÑOL / INGLÉS) ---
     const translations = {
         es: {
             "nav-home": "Inicio",
@@ -365,6 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero-title-name": "Flavio Josueph Morales",
             "hero-subtitle": "Desarrollador de Software enfocado en el diseño de software para PC, aplicaciones móviles y arquitecturas de Inteligencia Artificial, impulsado por flujos de trabajo modernos de vibe coding.",
             "hero-btn-projects": "Ver Proyectos",
+            "hero-btn-cv": "Descargar CV",
             "hero-btn-contact": "Contactar",
             "about-title": "Sobre Mí",
             "about-principles-title": "Principios",
@@ -420,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-placeholder-email": "Email",
             "form-placeholder-message": "Mensaje",
             "form-btn-submit": "Enviar Mensaje",
+            "toast-copied": "¡Correo copiado al portapapeles!",
             "footer-copyright": "© 2026 Flavio Morales. Todos los derechos reservados."
         },
         en: {
@@ -433,6 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero-title-name": "Flavio Josueph Morales",
             "hero-subtitle": "Software Developer focused on PC software design, mobile applications, and AI architectures, driven by modern vibe coding workflows.",
             "hero-btn-projects": "View Projects",
+            "hero-btn-cv": "Download CV",
             "hero-btn-contact": "Contact",
             "about-title": "About Me",
             "about-principles-title": "Principles",
@@ -488,6 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-placeholder-email": "Email",
             "form-placeholder-message": "Message",
             "form-btn-submit": "Send Message",
+            "toast-copied": "Email copied to clipboard!",
             "footer-copyright": "© 2026 Flavio Morales. All rights reserved."
         }
     };
