@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         type: 'service-dropdown',
                         title: 'Solicitar Servicio',
                         options: [
-                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contactar por Correo', desc: 'alexpc778@gmail.com', href: 'mailto:alexpc778@gmail.com?subject=Solicitud%20de%20Servicio%20de%20Optimizaci%C3%B3n%20-%20Morales%20Dev%20Suite&body=Hola%20Flavio,%20deseo%20solicitar%20el%20servicio%20de%20optimizaci%C3%B3n%20para%20mi%20computadora.' },
+                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contactar por Correo', desc: 'alexpc778@gmail.com', isEmail: true },
                             { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contactar por Discord', desc: 'Servidor de soporte', href: 'https://discord.gg/JyGVZ2JpwB' }
                         ]
                     },
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         type: 'service-dropdown',
                         title: 'Request Service',
                         options: [
-                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contact via Email', desc: 'alexpc778@gmail.com', href: 'mailto:alexpc778@gmail.com?subject=Optimization%20Service%20Request%20-%20Morales%20Dev%20Suite&body=Hi%20Flavio,%20I%20would%20like%20to%20request%20the%20optimization%20service%20for%20my%20computer.' },
+                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contact via Email', desc: 'alexpc778@gmail.com', isEmail: true },
                             { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contact via Discord', desc: 'Support server', href: 'https://discord.gg/JyGVZ2JpwB' }
                         ]
                     },
@@ -392,6 +392,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Plantillas de correo inteligente para solicitud de servicio con enlace a captura
+    const serviceEmailTemplates = {
+        es: {
+            subject: 'Solicitud de Servicio de Optimización - Morales Dev Suite',
+            body: `Hola Flavio,
+
+Deseo solicitar el servicio de optimización para mi computadora con Morales Dev Suite.
+
+📌 Datos de mi equipo:
+- Tipo de equipo: [ Laptop / PC de Escritorio ]
+- Procesador y Gráfica (GPU): 
+- Memoria RAM: 
+- Uso principal: [ eSports / Juegos / Edición / Trabajo ]
+
+🔗 Referencia del software: https://josue2004exe.github.io/
+🖼️ Captura de Morales Dev Suite: https://josue2004exe.github.io/assets/images/morales_development.png`
+        },
+        en: {
+            subject: 'Optimization Service Request - Morales Dev Suite',
+            body: `Hi Flavio,
+
+I would like to request the optimization service for my computer using Morales Dev Suite.
+
+📌 My PC specs:
+- Device type: [ Laptop / Desktop PC ]
+- Processor & GPU: 
+- RAM memory: 
+- Main use case: [ Gaming / eSports / Editing / Work ]
+
+🔗 Software reference: https://josue2004exe.github.io/
+🖼️ Morales Dev Suite screenshot: https://josue2004exe.github.io/assets/images/morales_development.png`
+        }
+    };
+
+    function openSmartGmail(lang = currentLang) {
+        const tpl = serviceEmailTemplates[lang] || serviceEmailTemplates.es;
+        const email = 'alexpc778@gmail.com';
+        const encSub = encodeURIComponent(tpl.subject);
+        const encBody = encodeURIComponent(tpl.body);
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = `mailto:${email}?subject=${encSub}&body=${encBody}`;
+        } else {
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encSub}&body=${encBody}`, '_blank');
+        }
+    }
+
     let activeProjectKey = null;
 
     function renderModalContent(projectId, lang) {
@@ -439,15 +487,29 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="fa-solid fa-wrench"></i> <span>${act.title}</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
                         </button>
                         <div class="modal-service-menu" role="menu">
-                            ${act.options.map(opt => `
-                                <a href="${opt.href}" ${opt.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="service-menu-item" role="menuitem">
-                                    <div class="service-icon-box ${opt.cls}"><i class="${opt.icon}"></i></div>
-                                    <div class="service-text-box">
-                                        <strong>${opt.title}</strong>
-                                        <small>${opt.desc}</small>
-                                    </div>
-                                </a>
-                            `).join('')}
+                            ${act.options.map(opt => {
+                                if (opt.isEmail) {
+                                    return `
+                                        <a href="#" class="service-menu-item service-email-btn" role="menuitem">
+                                            <div class="service-icon-box ${opt.cls}"><i class="${opt.icon}"></i></div>
+                                            <div class="service-text-box">
+                                                <strong>${opt.title}</strong>
+                                                <small>${opt.desc}</small>
+                                            </div>
+                                        </a>
+                                    `;
+                                } else {
+                                    return `
+                                        <a href="${opt.href}" target="_blank" rel="noopener noreferrer" class="service-menu-item" role="menuitem">
+                                            <div class="service-icon-box ${opt.cls}"><i class="${opt.icon}"></i></div>
+                                            <div class="service-text-box">
+                                                <strong>${opt.title}</strong>
+                                                <small>${opt.desc}</small>
+                                            </div>
+                                        </a>
+                                    `;
+                                }
+                            }).join('')}
                         </div>
                     `;
                     modalFooterActions.appendChild(wrap);
@@ -528,6 +590,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- MANEJO DE MENÚS DESPLEGABLES DE SERVICIO (CARD Y MODAL) ---
     document.addEventListener('click', (e) => {
+        const emailBtn = e.target.closest('.service-email-btn');
+        if (emailBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            openSmartGmail(currentLang);
+            return;
+        }
+
         const toggle = e.target.closest('.service-dropdown-toggle');
         const allWraps = document.querySelectorAll('.card-service-dropdown-wrap, .modal-service-dropdown-wrap');
 
