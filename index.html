@@ -49,7 +49,7 @@
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/Diseño.css?v=2.4">
+    <link rel="stylesheet" href="css/Diseño.css?v=2.5">
 </head>
 <body>
 
@@ -350,6 +350,27 @@
                             </div>
                             <div class="project-links">
                                 <button class="project-link-btn open-showcase-btn" data-project="morales-dev" aria-label="Ver funcionamiento y demo de Morales Dev Suite"><i class="fa-solid fa-play"></i> <span data-i18n="project-demo-btn"> Demo & Funcionamiento</span></button>
+                                <div class="card-service-dropdown-wrap">
+                                    <button class="project-link-btn service-dropdown-toggle" aria-label="Solicitar servicio de optimización" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa-solid fa-wrench"></i> <span data-i18n="service-btn-title">Solicitar Servicio</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                                    </button>
+                                    <div class="card-service-menu" role="menu">
+                                        <a href="mailto:alexpc778@gmail.com?subject=Solicitud%20de%20Servicio%20de%20Optimizaci%C3%B3n%20-%20Morales%20Dev%20Suite&body=Hola%20Flavio,%20deseo%20solicitar%20el%20servicio%20de%20optimizaci%C3%B3n%20para%20mi%20computadora." class="service-menu-item" role="menuitem">
+                                            <div class="service-icon-box gmail-box"><i class="fa-solid fa-envelope"></i></div>
+                                            <div class="service-text-box">
+                                                <strong data-i18n="service-opt-gmail">Contactar por Correo</strong>
+                                                <small>alexpc778@gmail.com</small>
+                                            </div>
+                                        </a>
+                                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="service-menu-item" role="menuitem">
+                                            <div class="service-icon-box discord-box"><i class="fa-brands fa-discord"></i></div>
+                                            <div class="service-text-box">
+                                                <strong data-i18n="service-opt-discord">Contactar por Discord</strong>
+                                                <small data-i18n="service-opt-discord-desc">Servidor de soporte</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                                 <a href="https://github.com/Josue2004exe/SoftwareDeOptimizacion" target="_blank" class="project-link-btn" aria-label="Ver código de Morales Dev en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project-pc-code"> Código</span></a>
                             </div>
                         </div>
@@ -547,6 +568,6 @@
     </div>
 
     <!-- Script JS -->
-    <script src="js/Logica.js?v=2.4"></script>
+    <script src="js/Logica.js?v=2.5"></script>
 </body>
 </html>

@@ -2179,4 +2179,170 @@ CONTACTO
     }
 }
 
+/* ==========================================================================
+   DROPDOWN SOLICITAR SERVICIO (CORREO & DISCORD)
+   ========================================================================== */
+
+.card-service-dropdown-wrap,
+.modal-service-dropdown-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.service-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+    transition: var(--transition-premium);
+}
+
+.service-dropdown-toggle:hover,
+.service-dropdown-toggle.active {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+}
+
+.service-dropdown-toggle .arrow-icon {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.service-dropdown-toggle.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+.card-service-menu,
+.modal-service-menu {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    min-width: 260px;
+    background-color: rgba(14, 14, 18, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.03);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.96);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease;
+    pointer-events: none;
+}
+
+.modal-service-menu {
+    bottom: auto;
+    top: calc(100% + 8px);
+}
+
+.card-service-menu.open,
+.modal-service-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.service-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+    background-color: transparent;
+    transition: var(--transition-premium);
+    border: 1px solid transparent;
+}
+
+.service-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateX(3px);
+}
+
+.service-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-premium);
+}
+
+.service-menu-item:hover .service-icon-box {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    transform: scale(1.08);
+}
+
+.gmail-box i {
+    color: #ea4335;
+}
+
+.service-menu-item:hover .gmail-box i {
+    color: var(--bg-primary);
+}
+
+.discord-box i {
+    color: #5865f2;
+}
+
+.service-menu-item:hover .discord-box i {
+    color: var(--bg-primary);
+}
+
+.service-text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.service-text-box strong {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.service-text-box small {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .card-service-menu,
+    .modal-service-menu {
+        min-width: 240px;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px) scale(0.96);
+    }
+    
+    .card-service-menu.open,
+    .modal-service-menu.open {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+
 

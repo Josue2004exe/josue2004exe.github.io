@@ -297,8 +297,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     { icon: 'fa-solid fa-shield-halved', text: 'Authenticode Signed' }
                 ],
                 actions: [
-                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' Ver Repositorio' },
-                    { type: 'secondary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion/releases', icon: 'fa-solid fa-download', text: ' Descargar Portable' }
+                    {
+                        type: 'service-dropdown',
+                        title: 'Solicitar Servicio',
+                        options: [
+                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contactar por Correo', desc: 'alexpc778@gmail.com', href: 'mailto:alexpc778@gmail.com?subject=Solicitud%20de%20Servicio%20de%20Optimizaci%C3%B3n%20-%20Morales%20Dev%20Suite&body=Hola%20Flavio,%20deseo%20solicitar%20el%20servicio%20de%20optimizaci%C3%B3n%20para%20mi%20computadora.' },
+                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contactar por Discord', desc: 'Servidor de soporte', href: 'https://discord.com' }
+                        ]
+                    },
+                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' Ver Repositorio' }
                 ]
             },
             en: {
@@ -323,8 +330,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     { icon: 'fa-solid fa-shield-halved', text: 'Authenticode Signed' }
                 ],
                 actions: [
-                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' View Repository' },
-                    { type: 'secondary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion/releases', icon: 'fa-solid fa-download', text: ' Download Portable' }
+                    {
+                        type: 'service-dropdown',
+                        title: 'Request Service',
+                        options: [
+                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contact via Email', desc: 'alexpc778@gmail.com', href: 'mailto:alexpc778@gmail.com?subject=Optimization%20Service%20Request%20-%20Morales%20Dev%20Suite&body=Hi%20Flavio,%20I%20would%20like%20to%20request%20the%20optimization%20service%20for%20my%20computer.' },
+                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contact via Discord', desc: 'Support server', href: 'https://discord.com' }
+                        ]
+                    },
+                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' View Repository' }
                 ]
             }
         },
@@ -417,7 +431,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalFooterActions) {
             modalFooterActions.innerHTML = '';
             data.actions.forEach(act => {
-                if (act.type === 'disabled') {
+                if (act.type === 'service-dropdown') {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'modal-service-dropdown-wrap';
+                    wrap.innerHTML = `
+                        <button class="btn btn-primary service-dropdown-toggle" aria-label="${act.title}" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-solid fa-wrench"></i> <span>${act.title}</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                        </button>
+                        <div class="modal-service-menu" role="menu">
+                            ${act.options.map(opt => `
+                                <a href="${opt.href}" ${opt.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="service-menu-item" role="menuitem">
+                                    <div class="service-icon-box ${opt.cls}"><i class="${opt.icon}"></i></div>
+                                    <div class="service-text-box">
+                                        <strong>${opt.title}</strong>
+                                        <small>${opt.desc}</small>
+                                    </div>
+                                </a>
+                            `).join('')}
+                        </div>
+                    `;
+                    modalFooterActions.appendChild(wrap);
+                } else if (act.type === 'disabled') {
                     const span = document.createElement('span');
                     span.className = 'project-link-btn disabled-btn';
                     span.innerHTML = `<i class="${act.icon}"></i> ${act.text}`;
@@ -491,6 +525,49 @@ document.addEventListener('DOMContentLoaded', () => {
             closeShowcaseModal();
         }
     });
+
+    // --- MANEJO DE MENÚS DESPLEGABLES DE SERVICIO (CARD Y MODAL) ---
+    document.addEventListener('click', (e) => {
+        const toggle = e.target.closest('.service-dropdown-toggle');
+        const allWraps = document.querySelectorAll('.card-service-dropdown-wrap, .modal-service-dropdown-wrap');
+
+        if (toggle) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parentWrap = toggle.closest('.card-service-dropdown-wrap, .modal-service-dropdown-wrap');
+            const menu = parentWrap.querySelector('.card-service-menu, .modal-service-menu');
+            const isOpen = menu.classList.contains('open');
+
+            // Cerrar todos los demás menús antes de abrir este
+            allWraps.forEach(w => {
+                const m = w.querySelector('.card-service-menu, .modal-service-menu');
+                const t = w.querySelector('.service-dropdown-toggle');
+                if (m) m.classList.remove('open');
+                if (t) {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            if (!isOpen) {
+                menu.classList.add('open');
+                toggle.classList.add('active');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        } else {
+            // Si hace clic fuera de cualquier menú, cerrarlos todos
+            allWraps.forEach(w => {
+                const m = w.querySelector('.card-service-menu, .modal-service-menu');
+                const t = w.querySelector('.service-dropdown-toggle');
+                if (m) m.classList.remove('open');
+                if (t) {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    });
+
     // --- 8. EFECTO DE BRILLO MAGNÉTICO (SPOTLIGHT HOVER) EN TARJETAS ---
     const interactiveCards = document.querySelectorAll('.skill-card, .project-card, .about-card');
     interactiveCards.forEach(card => {
@@ -671,6 +748,10 @@ document.addEventListener('DOMContentLoaded', () => {
             "projects-filter-ai": "IA",
             "projects-filter-web": "Web",
             "project-demo-btn": " Demo & Funcionamiento",
+            "service-btn-title": "Solicitar Servicio",
+            "service-opt-gmail": "Contactar por Correo",
+            "service-opt-discord": "Contactar por Discord",
+            "service-opt-discord-desc": "Servidor de soporte",
             "modal-video-pending-title": "Video Demostrativo",
             "modal-video-pending-sub": "Próximamente disponible",
             "modal-video-hint": "Reproduce el video para observar el software en tiempo real.",
@@ -752,6 +833,10 @@ document.addEventListener('DOMContentLoaded', () => {
             "projects-filter-ai": "AI",
             "projects-filter-web": "Web",
             "project-demo-btn": " Demo & How it Works",
+            "service-btn-title": "Request Service",
+            "service-opt-gmail": "Contact via Email",
+            "service-opt-discord": "Contact via Discord",
+            "service-opt-discord-desc": "Support server",
             "modal-video-pending-title": "Demo Video",
             "modal-video-pending-sub": "Coming soon",
             "modal-video-hint": "Play the video to watch the software in real time.",
