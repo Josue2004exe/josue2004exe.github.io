@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         title: 'Solicitar Servicio',
                         options: [
                             { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contactar por Correo', desc: 'alexpc778@gmail.com', href: 'mailto:alexpc778@gmail.com?subject=Solicitud%20de%20Servicio%20de%20Optimizaci%C3%B3n%20-%20Morales%20Dev%20Suite&body=Hola%20Flavio,%20deseo%20solicitar%20el%20servicio%20de%20optimizaci%C3%B3n%20para%20mi%20computadora.' },
-                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contactar por Discord', desc: 'Servidor de soporte', href: 'https://discord.com' }
+                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contactar por Discord', desc: 'Servidor de soporte', href: 'https://discord.gg/JyGVZ2JpwB' }
                         ]
                     },
                     { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' Ver Repositorio' }
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         title: 'Request Service',
                         options: [
                             { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contact via Email', desc: 'alexpc778@gmail.com', href: 'mailto:alexpc778@gmail.com?subject=Optimization%20Service%20Request%20-%20Morales%20Dev%20Suite&body=Hi%20Flavio,%20I%20would%20like%20to%20request%20the%20optimization%20service%20for%20my%20computer.' },
-                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contact via Discord', desc: 'Support server', href: 'https://discord.com' }
+                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contact via Discord', desc: 'Support server', href: 'https://discord.gg/JyGVZ2JpwB' }
                         ]
                     },
                     { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' View Repository' }
