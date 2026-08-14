@@ -49,7 +49,7 @@
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/Diseño.css?v=2.3">
+    <link rel="stylesheet" href="css/Diseño.css?v=2.4">
 </head>
 <body>
 
@@ -325,7 +325,7 @@
                                 <span class="project-badge"><i class="fa-solid fa-layer-group"></i> MVVM</span>
                             </div>
                             <div class="project-links">
-                                <button class="project-link-btn play-demo-btn" data-video="assets/videos/0731.mp4" aria-label="Ver demostración en video de DupCleaner"><i class="fa-solid fa-play"></i> <span data-i18n="project1-demo"> Demo</span></button>
+                                <button class="project-link-btn open-showcase-btn" data-project="dupcleaner" aria-label="Ver funcionamiento y demo de DupCleaner"><i class="fa-solid fa-play"></i> <span data-i18n="project-demo-btn"> Demo & Funcionamiento</span></button>
                                 <span class="project-link-btn disabled-btn" aria-label="Lanzamiento próximamente en Google Play"><i class="fa-brands fa-google-play"></i> <span data-i18n="project1-soon"> Próximamente</span></span>
                             </div>
                         </div>
@@ -349,7 +349,8 @@
                                 <span class="project-badge"><i class="fa-solid fa-network-wired"></i> TCP/IP Tweaks</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de Morales Dev en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project-pc-code"> Código</span></a>
+                                <button class="project-link-btn open-showcase-btn" data-project="morales-dev" aria-label="Ver funcionamiento y demo de Morales Dev Suite"><i class="fa-solid fa-play"></i> <span data-i18n="project-demo-btn"> Demo & Funcionamiento</span></button>
+                                <a href="https://github.com/Josue2004exe/SoftwareDeOptimizacion" target="_blank" class="project-link-btn" aria-label="Ver código de Morales Dev en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project-pc-code"> Código</span></a>
                             </div>
                         </div>
                     </article>
@@ -480,20 +481,72 @@
         <span id="toast-text" data-i18n="toast-copied">¡Correo copiado al portapapeles!</span>
     </div>
 
-    <!-- Modal para Demostración en Video -->
-    <div class="video-modal" id="video-modal">
-        <div class="video-modal-content">
-            <button class="video-modal-close" id="video-modal-close" aria-label="Cerrar reproductor">&times;</button>
-            <div class="video-wrapper">
-                <video id="modal-video-player" controls>
-                    <source src="" type="video/mp4">
-                    Tu navegador no soporta reproducción de video.
-                </video>
+    <!-- Modal Split de Proyecto (Video + Cómo Funciona) -->
+    <div class="project-modal" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="project-modal-backdrop" id="project-modal-backdrop"></div>
+        <div class="project-modal-container">
+            <button class="project-modal-close" id="project-modal-close" aria-label="Cerrar modal">&times;</button>
+            <div class="project-modal-grid">
+                <!-- Columna Izquierda: Video Demostrativo -->
+                <div class="project-modal-media-col">
+                    <div class="modal-video-wrapper">
+                        <video id="modal-video-player" controls playsinline>
+                            <source src="" type="video/mp4">
+                            Tu navegador no soporta reproducción de video.
+                        </video>
+                        <div class="video-placeholder" id="modal-video-placeholder" style="display: none;">
+                            <img src="" id="modal-placeholder-img" alt="Vista previa del software">
+                            <div class="video-placeholder-overlay">
+                                <div class="placeholder-icon-circle"><i class="fa-solid fa-film"></i></div>
+                                <span class="placeholder-title" data-i18n="modal-video-pending-title">Video Demostrativo</span>
+                                <span class="placeholder-subtitle" data-i18n="modal-video-pending-sub">Próximamente disponible</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-hint">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <span data-i18n="modal-video-hint">Reproduce el video para observar el software en tiempo real.</span>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Cómo Funciona & Ficha Técnica -->
+                <div class="project-modal-content-col">
+                    <div class="modal-header-badge-row">
+                        <span class="modal-category-badge" id="modal-project-badge">Software PC / Desktop</span>
+                        <span class="modal-status-badge" id="modal-project-status"><i class="fa-solid fa-check"></i> v3.3.0 PRO</span>
+                    </div>
+                    <h2 class="modal-title" id="modal-project-title">Morales Dev Suite</h2>
+                    <p class="modal-subtitle" id="modal-project-subtitle">Suite de optimización extrema, diagnóstico de hardware y kernel tuning para Windows.</p>
+
+                    <div class="modal-details-section">
+                        <h3 class="modal-section-heading">
+                            <i class="fa-solid fa-microchip icon-heading"></i>
+                            <span data-i18n="modal-how-works-title">¿Cómo funciona el software?</span>
+                        </h3>
+                        <ul class="modal-features-list" id="modal-features-list">
+                            <!-- Inyectado dinámicamente por JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div class="modal-details-section">
+                        <h3 class="modal-section-heading">
+                            <i class="fa-solid fa-cubes icon-heading"></i>
+                            <span data-i18n="modal-stack-title">Arquitectura & Tecnologías</span>
+                        </h3>
+                        <div class="modal-tech-stack" id="modal-tech-stack">
+                            <!-- Inyectado dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="modal-footer-actions" id="modal-footer-actions">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Script JS -->
-    <script src="js/Logica.js?v=2.3"></script>
+    <script src="js/Logica.js?v=2.4"></script>
 </body>
 </html>

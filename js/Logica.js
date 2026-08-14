@@ -257,48 +257,240 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 7. MODAL DE VIDEO DE DEMOSTRACIÓN ---
-    const playDemoBtns = document.querySelectorAll('.play-demo-btn');
-    const videoModal = document.getElementById('video-modal');
-    const videoModalClose = document.getElementById('video-modal-close');
+    // --- 7. MODAL SPLIT SHOWCASE DE PROYECTO (VIDEO + CÓMO FUNCIONA) ---
+    const projectModal = document.getElementById('project-modal');
+    const projectModalClose = document.getElementById('project-modal-close');
+    const projectModalBackdrop = document.getElementById('project-modal-backdrop');
     const modalVideoPlayer = document.getElementById('modal-video-player');
+    const modalVideoPlaceholder = document.getElementById('modal-video-placeholder');
+    const modalPlaceholderImg = document.getElementById('modal-placeholder-img');
+    const modalProjectBadge = document.getElementById('modal-project-badge');
+    const modalProjectStatus = document.getElementById('modal-project-status');
+    const modalProjectTitle = document.getElementById('modal-project-title');
+    const modalProjectSubtitle = document.getElementById('modal-project-subtitle');
+    const modalFeaturesList = document.getElementById('modal-features-list');
+    const modalTechStack = document.getElementById('modal-tech-stack');
+    const modalFooterActions = document.getElementById('modal-footer-actions');
+    const openShowcaseBtns = document.querySelectorAll('.open-showcase-btn');
 
-    if (videoModal && videoModalClose && modalVideoPlayer) {
-        playDemoBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const videoSrc = btn.getAttribute('data-video');
-                if (videoSrc) {
-                    modalVideoPlayer.src = videoSrc;
-                    videoModal.classList.add('open');
-                    modalVideoPlayer.play().catch(err => {
-                        console.log("Autoplay bloqueado o error al reproducir:", err);
-                    });
-                }
+    const showcaseData = {
+        'morales-dev': {
+            es: {
+                badge: 'Software PC / Desktop',
+                status: '<i class="fa-solid fa-check"></i> v3.3.0 PRO',
+                title: 'Morales Dev Suite',
+                subtitle: 'Herramienta integral de optimización extrema, diagnóstico de hardware y kernel tuning para Windows.',
+                video: 'assets/videos/morales_dev.mp4',
+                placeholderImg: 'assets/images/morales_development.png',
+                features: [
+                    '<strong>Arquitectura Híbrida C# & C++:</strong> Frontend moderno en WPF (.NET 8.0) enlazado a un núcleo nativo C++ compilado con Nuitka para ejecución instantánea sin dependencias.',
+                    '<strong>Optimizaciones a Nivel de Kernel:</strong> NtSetTimerResolution a 0.5ms nativo, kernel 100% en memoria RAM y priorización dinámica de CPU para erradicar micro-tirones (stuttering).',
+                    '<strong>Tuning de GPU & Modo MSI:</strong> Configuración de interrupciones basadas en mensajes (MSI Mode) en GPU y NIC, y bloqueo de caídas de reloj (ULPS OFF).',
+                    '<strong>Stack TCP/IP & Perfiles .morales:</strong> TCP No-Delay (Nagle OFF), benchmark DNS en vivo y gestor de perfiles portables (.morales) con Drag & Drop para optimizar cualquier PC en 3 segundos.'
+                ],
+                badges: [
+                    { icon: 'fa-brands fa-windows', text: 'C# / .NET 8.0 WPF' },
+                    { icon: 'fa-solid fa-code', text: 'C++ Native (Nuitka)' },
+                    { icon: 'fa-solid fa-microchip', text: 'Kernel 0.5ms Timer' },
+                    { icon: 'fa-solid fa-server', text: 'WMI / SMBIOS Telemetry' },
+                    { icon: 'fa-solid fa-network-wired', text: 'TCP/IP & DNS Engine' },
+                    { icon: 'fa-solid fa-shield-halved', text: 'Authenticode Signed' }
+                ],
+                actions: [
+                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' Ver Repositorio' },
+                    { type: 'secondary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion/releases', icon: 'fa-solid fa-download', text: ' Descargar Portable' }
+                ]
+            },
+            en: {
+                badge: 'PC / Desktop Software',
+                status: '<i class="fa-solid fa-check"></i> v3.3.0 PRO',
+                title: 'Morales Dev Suite',
+                subtitle: 'Comprehensive Windows optimization, hardware diagnostics, and kernel tuning suite.',
+                video: 'assets/videos/morales_dev.mp4',
+                placeholderImg: 'assets/images/morales_development.png',
+                features: [
+                    '<strong>Hybrid C# & C++ Architecture:</strong> Modern WPF (.NET 8.0) frontend linked to a native C++ core compiled with Nuitka for instant standalone execution.',
+                    '<strong>Kernel-Level Tuning:</strong> NtSetTimerResolution set to native 0.5ms, kernel 100% in RAM, and dynamic CPU scheduling to eliminate micro-stuttering.',
+                    '<strong>GPU Tuning & MSI Mode:</strong> Message Signaled Interrupts (MSI Mode) configured for GPU and NIC, with clock drop prevention (ULPS OFF).',
+                    '<strong>TCP/IP Stack & .morales Profiles:</strong> TCP No-Delay (Nagle OFF), live DNS benchmarking, and portable profiles (.morales) with Drag & Drop to tune any PC in 3 seconds.'
+                ],
+                badges: [
+                    { icon: 'fa-brands fa-windows', text: 'C# / .NET 8.0 WPF' },
+                    { icon: 'fa-solid fa-code', text: 'C++ Native (Nuitka)' },
+                    { icon: 'fa-solid fa-microchip', text: 'Kernel 0.5ms Timer' },
+                    { icon: 'fa-solid fa-server', text: 'WMI / SMBIOS Telemetry' },
+                    { icon: 'fa-solid fa-network-wired', text: 'TCP/IP & DNS Engine' },
+                    { icon: 'fa-solid fa-shield-halved', text: 'Authenticode Signed' }
+                ],
+                actions: [
+                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' View Repository' },
+                    { type: 'secondary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion/releases', icon: 'fa-solid fa-download', text: ' Download Portable' }
+                ]
+            }
+        },
+        'dupcleaner': {
+            es: {
+                badge: 'Android / Kotlin',
+                status: '<i class="fa-solid fa-mobile-screen"></i> Android Native',
+                title: 'DupCleaner',
+                subtitle: 'Aplicación Android nativa para detección y depuración inteligente de contactos duplicados.',
+                video: 'assets/videos/0731.mp4',
+                placeholderImg: 'assets/images/dupcleaner.png',
+                features: [
+                    '<strong>Arquitectura MVVM Desacoplada:</strong> Desarrollada 100% en Kotlin nativo y Jetpack Compose moderno, garantizando reactividad total y cero dependencias obsoletas.',
+                    '<strong>Algoritmo de Detección Inteligente:</strong> Escaneo profundo de la agenda reconociendo duplicados por similitud de nombres, números normalizados y coincidencias difusas.',
+                    '<strong>Depuración Masiva & Respaldo Seguro:</strong> Permite agrupar y limpiar cientos de registros en segundos, protegiendo siempre el contacto original con respaldo en Room DB.'
+                ],
+                badges: [
+                    { icon: 'fa-solid fa-code', text: 'Kotlin' },
+                    { icon: 'fa-solid fa-cubes', text: 'Jetpack Compose' },
+                    { icon: 'fa-solid fa-database', text: 'Room DB' },
+                    { icon: 'fa-solid fa-layer-group', text: 'MVVM' },
+                    { icon: 'fa-solid fa-bolt', text: 'Coroutines' }
+                ],
+                actions: [
+                    { type: 'disabled', href: '#', icon: 'fa-brands fa-google-play', text: ' Lanzamiento Próximamente' }
+                ]
+            },
+            en: {
+                badge: 'Android / Kotlin',
+                status: '<i class="fa-solid fa-mobile-screen"></i> Android Native',
+                title: 'DupCleaner',
+                subtitle: 'Native Android application for intelligent duplicate contact detection and cleanup.',
+                video: 'assets/videos/0731.mp4',
+                placeholderImg: 'assets/images/dupcleaner.png',
+                features: [
+                    '<strong>Decoupled MVVM Architecture:</strong> Built 100% in native Kotlin and modern Jetpack Compose, ensuring full reactivity and high UI performance.',
+                    '<strong>Intelligent Detection Algorithm:</strong> Deep phonebook scanner recognizing duplicates through name similarity, normalized numbers, and fuzzy matching.',
+                    '<strong>Secure Bulk Cleaning:</strong> Groups and cleans hundreds of duplicate entries in seconds while preserving the original contact with Room DB local persistence.'
+                ],
+                badges: [
+                    { icon: 'fa-solid fa-code', text: 'Kotlin' },
+                    { icon: 'fa-solid fa-cubes', text: 'Jetpack Compose' },
+                    { icon: 'fa-solid fa-database', text: 'Room DB' },
+                    { icon: 'fa-solid fa-layer-group', text: 'MVVM' },
+                    { icon: 'fa-solid fa-bolt', text: 'Coroutines' }
+                ],
+                actions: [
+                    { type: 'disabled', href: '#', icon: 'fa-brands fa-google-play', text: ' Coming Soon on Google Play' }
+                ]
+            }
+        }
+    };
+
+    let activeProjectKey = null;
+
+    function renderModalContent(projectId, lang) {
+        const data = showcaseData[projectId] && showcaseData[projectId][lang] ? showcaseData[projectId][lang] : null;
+        if (!data) return;
+
+        activeProjectKey = projectId;
+
+        if (modalProjectBadge) modalProjectBadge.textContent = data.badge;
+        if (modalProjectStatus) modalProjectStatus.innerHTML = data.status;
+        if (modalProjectTitle) modalProjectTitle.textContent = data.title;
+        if (modalProjectSubtitle) modalProjectSubtitle.textContent = data.subtitle;
+
+        // Render Features
+        if (modalFeaturesList) {
+            modalFeaturesList.innerHTML = '';
+            data.features.forEach(feat => {
+                const li = document.createElement('li');
+                li.className = 'modal-feature-item';
+                li.innerHTML = feat;
+                modalFeaturesList.appendChild(li);
             });
-        });
-
-        function closeModal() {
-            videoModal.classList.remove('open');
-            modalVideoPlayer.pause();
-            modalVideoPlayer.src = ""; // Detener carga de video
         }
 
-        videoModalClose.addEventListener('click', closeModal);
+        // Render Tech Stack Badges
+        if (modalTechStack) {
+            modalTechStack.innerHTML = '';
+            data.badges.forEach(b => {
+                const span = document.createElement('span');
+                span.className = 'modal-stack-pill';
+                span.innerHTML = `<i class="${b.icon}"></i> ${b.text}`;
+                modalTechStack.appendChild(span);
+            });
+        }
 
-        // Cerrar al hacer clic en el fondo oscuro
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) {
-                closeModal();
-            }
-        });
+        // Render Action Buttons
+        if (modalFooterActions) {
+            modalFooterActions.innerHTML = '';
+            data.actions.forEach(act => {
+                if (act.type === 'disabled') {
+                    const span = document.createElement('span');
+                    span.className = 'project-link-btn disabled-btn';
+                    span.innerHTML = `<i class="${act.icon}"></i> ${act.text}`;
+                    modalFooterActions.appendChild(span);
+                } else {
+                    const a = document.createElement('a');
+                    a.href = act.href;
+                    a.target = '_blank';
+                    a.className = act.type === 'primary' ? 'btn btn-primary' : 'btn btn-secondary';
+                    a.innerHTML = `<i class="${act.icon}"></i> ${act.text}`;
+                    modalFooterActions.appendChild(a);
+                }
+            });
+        }
 
-        // Cerrar con la tecla Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && videoModal.classList.contains('open')) {
-                closeModal();
+        // Video Handling
+        if (modalVideoPlayer && modalVideoPlaceholder) {
+            modalVideoPlayer.style.display = 'block';
+            modalVideoPlaceholder.style.display = 'none';
+
+            if (data.video) {
+                modalVideoPlayer.src = data.video;
+                modalVideoPlayer.play().catch(() => {
+                    modalVideoPlayer.style.display = 'none';
+                    modalVideoPlaceholder.style.display = 'block';
+                    if (modalPlaceholderImg) modalPlaceholderImg.src = data.placeholderImg;
+                });
+            } else {
+                modalVideoPlayer.style.display = 'none';
+                modalVideoPlaceholder.style.display = 'block';
+                if (modalPlaceholderImg) modalPlaceholderImg.src = data.placeholderImg;
             }
-        });
+        }
     }
+
+    function openShowcaseModal(projectId) {
+        if (!projectModal) return;
+        renderModalContent(projectId, currentLang);
+        projectModal.classList.add('open');
+        projectModal.setAttribute('aria-hidden', 'false');
+        body.style.overflow = 'hidden';
+    }
+
+    function closeShowcaseModal() {
+        if (!projectModal) return;
+        projectModal.classList.remove('open');
+        projectModal.setAttribute('aria-hidden', 'true');
+        body.style.overflow = '';
+        if (modalVideoPlayer) {
+            modalVideoPlayer.pause();
+            modalVideoPlayer.src = '';
+        }
+        activeProjectKey = null;
+    }
+
+    openShowcaseBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectId = btn.getAttribute('data-project');
+            if (projectId) {
+                openShowcaseModal(projectId);
+            }
+        });
+    });
+
+    if (projectModalClose) projectModalClose.addEventListener('click', closeShowcaseModal);
+    if (projectModalBackdrop) projectModalBackdrop.addEventListener('click', closeShowcaseModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projectModal && projectModal.classList.contains('open')) {
+            closeShowcaseModal();
+        }
+    });
     // --- 8. EFECTO DE BRILLO MAGNÉTICO (SPOTLIGHT HOVER) EN TARJETAS ---
     const interactiveCards = document.querySelectorAll('.skill-card, .project-card, .about-card');
     interactiveCards.forEach(card => {
@@ -478,6 +670,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "projects-filter-pc": "PC",
             "projects-filter-ai": "IA",
             "projects-filter-web": "Web",
+            "project-demo-btn": " Demo & Funcionamiento",
+            "modal-video-pending-title": "Video Demostrativo",
+            "modal-video-pending-sub": "Próximamente disponible",
+            "modal-video-hint": "Reproduce el video para observar el software en tiempo real.",
+            "modal-how-works-title": "¿Cómo funciona el software?",
+            "modal-stack-title": "Arquitectura & Tecnologías",
             "project1-tag": "Android / Kotlin",
             "project1-title": "DupCleaner",
             "project1-desc": "Aplicación Android nativa en Kotlin y Jetpack Compose (MVVM). Escanea la agenda del dispositivo para agrupar y depurar de forma inteligente contactos duplicados, permitiendo un borrado masivo y seguro que protege el registro original.",
@@ -553,6 +751,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "projects-filter-pc": "PC",
             "projects-filter-ai": "AI",
             "projects-filter-web": "Web",
+            "project-demo-btn": " Demo & How it Works",
+            "modal-video-pending-title": "Demo Video",
+            "modal-video-pending-sub": "Coming soon",
+            "modal-video-hint": "Play the video to watch the software in real time.",
+            "modal-how-works-title": "How does the software work?",
+            "modal-stack-title": "Architecture & Tech Stack",
             "project1-tag": "Android / Kotlin",
             "project1-title": "DupCleaner",
             "project1-desc": "Native Android app in Kotlin and Jetpack Compose (MVVM). Scans the device agenda to intelligently group and clean duplicate contacts, allowing secure bulk deletion that protects the original registry.",
@@ -607,6 +811,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+        // Re-renderizar el modal si está abierto
+        if (activeProjectKey && projectModal && projectModal.classList.contains('open')) {
+            renderModalContent(activeProjectKey, lang);
+        }
 
         // Cambiar el texto de los botones del toggle
         langToggles.forEach(toggle => {
