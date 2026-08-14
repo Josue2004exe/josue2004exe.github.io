@@ -49,7 +49,7 @@
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/Diseño.css?v=2.1">
+    <link rel="stylesheet" href="css/Diseño.css?v=2.2">
 </head>
 <body>
 
@@ -300,13 +300,14 @@
                 <div class="projects-filters">
                     <button class="filter-btn active" data-filter="all" id="btn-filter-all" data-i18n="projects-filter-all">Todos</button>
                     <button class="filter-btn" data-filter="android" id="btn-filter-android" data-i18n="projects-filter-android">Android</button>
+                    <button class="filter-btn" data-filter="pc" id="btn-filter-pc" data-i18n="projects-filter-pc">PC</button>
                     <button class="filter-btn" data-filter="ai" id="btn-filter-ai" data-i18n="projects-filter-ai">IA</button>
                     <button class="filter-btn" data-filter="web" id="btn-filter-web" data-i18n="projects-filter-web">Web</button>
                 </div>
 
                 <!-- Grid de Proyectos -->
                 <div class="projects-grid">
-                    <!-- Proyecto 1: DupCleaner -->
+                    <!-- Proyecto 1: DupCleaner (Android) -->
                     <article class="project-card" data-category="android">
                         <div class="project-image-placeholder">
                             <img src="assets/images/dupcleaner.png" alt="Logo de DupCleaner" class="project-logo">
@@ -330,7 +331,30 @@
                         </div>
                     </article>
 
-                    <!-- Proyecto 2: AI Semantic Assistant -->
+                    <!-- Proyecto 2: Morales Development (Software PC) -->
+                    <article class="project-card" data-category="pc">
+                        <div class="project-image-placeholder">
+                            <img src="assets/images/morales_development.png" alt="Visual de Morales Development" class="project-img">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag" data-i18n="project-pc-tag">Software PC / Desktop</span>
+                            <h3 class="project-card-title" data-i18n="project-pc-title">Morales Development</h3>
+                            <p class="project-card-desc" data-i18n="project-pc-desc">
+                                Aplicación de escritorio integral para PC orientada a la gestión de datos empresariales, control de procesos y administración estructurada. Desarrollada con arquitectura por capas, persistencia en SQL Server y optimización de rendimiento local.
+                            </p>
+                            <div class="project-tech-badges">
+                                <span class="project-badge"><i class="fa-solid fa-cube"></i> C# / .NET</span>
+                                <span class="project-badge"><i class="fa-solid fa-server"></i> SQL Server</span>
+                                <span class="project-badge"><i class="fa-solid fa-layer-group"></i> Arquitectura por Capas</span>
+                                <span class="project-badge"><i class="fa-solid fa-desktop"></i> Desktop GUI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Josue2004exe" target="_blank" class="project-link-btn" aria-label="Ver código de Morales Development en GitHub"><i class="fa-brands fa-github"></i> <span data-i18n="project-pc-code"> Código</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3: AI Semantic Assistant (IA) -->
                     <article class="project-card" data-category="ai">
                         <div class="project-image-placeholder">
                             <img src="assets/images/ai_assistant.png" alt="Visual de AI Semantic Assistant" class="project-img">
@@ -353,7 +377,7 @@
                         </div>
                     </article>
 
-                    <!-- Proyecto 3: TaskFlow Dashboard -->
+                    <!-- Proyecto 4: TaskFlow Dashboard (Web) -->
                     <article class="project-card" data-category="web">
                         <div class="project-image-placeholder">
                             <img src="assets/images/taskflow.png" alt="Visual de TaskFlow Dashboard" class="project-img">
@@ -470,6 +494,6 @@
     </div>
 
     <!-- Script JS -->
-    <script src="js/Logica.js?v=2.1"></script>
+    <script src="js/Logica.js?v=2.2"></script>
 </body>
 </html>
