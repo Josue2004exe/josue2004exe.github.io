@@ -257,48 +257,387 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 7. MODAL DE VIDEO DE DEMOSTRACIÓN ---
-    const playDemoBtns = document.querySelectorAll('.play-demo-btn');
-    const videoModal = document.getElementById('video-modal');
-    const videoModalClose = document.getElementById('video-modal-close');
+    // --- 7. MODAL SPLIT SHOWCASE DE PROYECTO (VIDEO + CÓMO FUNCIONA) ---
+    const projectModal = document.getElementById('project-modal');
+    const projectModalClose = document.getElementById('project-modal-close');
+    const projectModalBackdrop = document.getElementById('project-modal-backdrop');
     const modalVideoPlayer = document.getElementById('modal-video-player');
+    const modalVideoPlaceholder = document.getElementById('modal-video-placeholder');
+    const modalPlaceholderImg = document.getElementById('modal-placeholder-img');
+    const modalProjectBadge = document.getElementById('modal-project-badge');
+    const modalProjectStatus = document.getElementById('modal-project-status');
+    const modalProjectTitle = document.getElementById('modal-project-title');
+    const modalProjectSubtitle = document.getElementById('modal-project-subtitle');
+    const modalFeaturesList = document.getElementById('modal-features-list');
+    const modalTechStack = document.getElementById('modal-tech-stack');
+    const modalFooterActions = document.getElementById('modal-footer-actions');
+    const openShowcaseBtns = document.querySelectorAll('.open-showcase-btn');
 
-    if (videoModal && videoModalClose && modalVideoPlayer) {
-        playDemoBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const videoSrc = btn.getAttribute('data-video');
-                if (videoSrc) {
-                    modalVideoPlayer.src = videoSrc;
-                    videoModal.classList.add('open');
-                    modalVideoPlayer.play().catch(err => {
-                        console.log("Autoplay bloqueado o error al reproducir:", err);
-                    });
-                }
+    const showcaseData = {
+        'morales-dev': {
+            es: {
+                badge: 'Software PC / Desktop',
+                status: '<i class="fa-solid fa-check"></i> v3.3.0 PRO',
+                title: 'Morales Dev Suite',
+                subtitle: 'Herramienta integral de optimización extrema, diagnóstico de hardware y kernel tuning para Windows.',
+                video: 'assets/videos/morales_dev.mp4',
+                placeholderImg: 'assets/images/morales_development.png',
+                features: [
+                    '<strong>Arquitectura Híbrida C# & C++:</strong> Frontend moderno en WPF (.NET 8.0) enlazado a un núcleo nativo C++ compilado con Nuitka para ejecución instantánea sin dependencias.',
+                    '<strong>Optimizaciones a Nivel de Kernel:</strong> NtSetTimerResolution a 0.5ms nativo, kernel 100% en memoria RAM y priorización dinámica de CPU para erradicar micro-tirones (stuttering).',
+                    '<strong>Tuning de GPU & Modo MSI:</strong> Configuración de interrupciones basadas en mensajes (MSI Mode) en GPU y NIC, y bloqueo de caídas de reloj (ULPS OFF).',
+                    '<strong>Stack TCP/IP & Perfiles .morales:</strong> TCP No-Delay (Nagle OFF), benchmark DNS en vivo y gestor de perfiles portables (.morales) con Drag & Drop para optimizar cualquier PC en 3 segundos.'
+                ],
+                badges: [
+                    { icon: 'fa-brands fa-windows', text: 'C# / .NET 8.0 WPF' },
+                    { icon: 'fa-solid fa-code', text: 'C++ Native (Nuitka)' },
+                    { icon: 'fa-solid fa-microchip', text: 'Kernel 0.5ms Timer' },
+                    { icon: 'fa-solid fa-server', text: 'WMI / SMBIOS Telemetry' },
+                    { icon: 'fa-solid fa-network-wired', text: 'TCP/IP & DNS Engine' },
+                    { icon: 'fa-solid fa-shield-halved', text: 'Authenticode Signed' }
+                ],
+                actions: [
+                    {
+                        type: 'service-dropdown',
+                        title: 'Solicitar Servicio',
+                        options: [
+                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contactar por Correo', desc: 'alexpc778@gmail.com', isEmail: true },
+                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contactar por Discord', desc: 'Servidor de soporte', href: 'https://discord.gg/JyGVZ2JpwB' }
+                        ]
+                    },
+                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' Ver Repositorio' }
+                ]
+            },
+            en: {
+                badge: 'PC / Desktop Software',
+                status: '<i class="fa-solid fa-check"></i> v3.3.0 PRO',
+                title: 'Morales Dev Suite',
+                subtitle: 'Comprehensive Windows optimization, hardware diagnostics, and kernel tuning suite.',
+                video: 'assets/videos/morales_dev.mp4',
+                placeholderImg: 'assets/images/morales_development.png',
+                features: [
+                    '<strong>Hybrid C# & C++ Architecture:</strong> Modern WPF (.NET 8.0) frontend linked to a native C++ core compiled with Nuitka for instant standalone execution.',
+                    '<strong>Kernel-Level Tuning:</strong> NtSetTimerResolution set to native 0.5ms, kernel 100% in RAM, and dynamic CPU scheduling to eliminate micro-stuttering.',
+                    '<strong>GPU Tuning & MSI Mode:</strong> Message Signaled Interrupts (MSI Mode) configured for GPU and NIC, with clock drop prevention (ULPS OFF).',
+                    '<strong>TCP/IP Stack & .morales Profiles:</strong> TCP No-Delay (Nagle OFF), live DNS benchmarking, and portable profiles (.morales) with Drag & Drop to tune any PC in 3 seconds.'
+                ],
+                badges: [
+                    { icon: 'fa-brands fa-windows', text: 'C# / .NET 8.0 WPF' },
+                    { icon: 'fa-solid fa-code', text: 'C++ Native (Nuitka)' },
+                    { icon: 'fa-solid fa-microchip', text: 'Kernel 0.5ms Timer' },
+                    { icon: 'fa-solid fa-server', text: 'WMI / SMBIOS Telemetry' },
+                    { icon: 'fa-solid fa-network-wired', text: 'TCP/IP & DNS Engine' },
+                    { icon: 'fa-solid fa-shield-halved', text: 'Authenticode Signed' }
+                ],
+                actions: [
+                    {
+                        type: 'service-dropdown',
+                        title: 'Request Service',
+                        options: [
+                            { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contact via Email', desc: 'alexpc778@gmail.com', isEmail: true },
+                            { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contact via Discord', desc: 'Support server', href: 'https://discord.gg/JyGVZ2JpwB' }
+                        ]
+                    },
+                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' View Repository' }
+                ]
+            }
+        },
+        'dupcleaner': {
+            es: {
+                badge: 'Android / Kotlin',
+                status: '<i class="fa-solid fa-mobile-screen"></i> Android Native',
+                title: 'DupCleaner',
+                subtitle: 'Aplicación Android nativa para detección y depuración inteligente de contactos duplicados.',
+                video: 'assets/videos/0731.mp4',
+                placeholderImg: 'assets/images/dupcleaner.png',
+                features: [
+                    '<strong>Arquitectura MVVM Desacoplada:</strong> Desarrollada 100% en Kotlin nativo y Jetpack Compose moderno, garantizando reactividad total y cero dependencias obsoletas.',
+                    '<strong>Algoritmo de Detección Inteligente:</strong> Escaneo profundo de la agenda reconociendo duplicados por similitud de nombres, números normalizados y coincidencias difusas.',
+                    '<strong>Depuración Masiva & Respaldo Seguro:</strong> Permite agrupar y limpiar cientos de registros en segundos, protegiendo siempre el contacto original con respaldo en Room DB.'
+                ],
+                badges: [
+                    { icon: 'fa-solid fa-code', text: 'Kotlin' },
+                    { icon: 'fa-solid fa-cubes', text: 'Jetpack Compose' },
+                    { icon: 'fa-solid fa-database', text: 'Room DB' },
+                    { icon: 'fa-solid fa-layer-group', text: 'MVVM' },
+                    { icon: 'fa-solid fa-bolt', text: 'Coroutines' }
+                ],
+                actions: [
+                    { type: 'disabled', href: '#', icon: 'fa-brands fa-google-play', text: ' Lanzamiento Próximamente' }
+                ]
+            },
+            en: {
+                badge: 'Android / Kotlin',
+                status: '<i class="fa-solid fa-mobile-screen"></i> Android Native',
+                title: 'DupCleaner',
+                subtitle: 'Native Android application for intelligent duplicate contact detection and cleanup.',
+                video: 'assets/videos/0731.mp4',
+                placeholderImg: 'assets/images/dupcleaner.png',
+                features: [
+                    '<strong>Decoupled MVVM Architecture:</strong> Built 100% in native Kotlin and modern Jetpack Compose, ensuring full reactivity and high UI performance.',
+                    '<strong>Intelligent Detection Algorithm:</strong> Deep phonebook scanner recognizing duplicates through name similarity, normalized numbers, and fuzzy matching.',
+                    '<strong>Secure Bulk Cleaning:</strong> Groups and cleans hundreds of duplicate entries in seconds while preserving the original contact with Room DB local persistence.'
+                ],
+                badges: [
+                    { icon: 'fa-solid fa-code', text: 'Kotlin' },
+                    { icon: 'fa-solid fa-cubes', text: 'Jetpack Compose' },
+                    { icon: 'fa-solid fa-database', text: 'Room DB' },
+                    { icon: 'fa-solid fa-layer-group', text: 'MVVM' },
+                    { icon: 'fa-solid fa-bolt', text: 'Coroutines' }
+                ],
+                actions: [
+                    { type: 'disabled', href: '#', icon: 'fa-brands fa-google-play', text: ' Coming Soon on Google Play' }
+                ]
+            }
+        }
+    };
+
+    // Plantillas de correo inteligente para solicitud de servicio con enlace a captura
+    const serviceEmailTemplates = {
+        es: {
+            subject: 'Solicitud de Servicio de Optimización - Morales Dev Suite',
+            body: `Hola Flavio,
+
+Deseo solicitar el servicio de optimización para mi computadora con Morales Dev Suite.
+
+📌 Datos de mi equipo:
+- Tipo de equipo: [ Laptop / PC de Escritorio ]
+- Procesador y Gráfica (GPU): 
+- Memoria RAM: 
+- Uso principal: [ eSports / Juegos / Edición / Trabajo ]
+
+🔗 Referencia del software: https://josue2004exe.github.io/
+🖼️ Captura de Morales Dev Suite: https://josue2004exe.github.io/assets/images/morales_development.png`
+        },
+        en: {
+            subject: 'Optimization Service Request - Morales Dev Suite',
+            body: `Hi Flavio,
+
+I would like to request the optimization service for my computer using Morales Dev Suite.
+
+📌 My PC specs:
+- Device type: [ Laptop / Desktop PC ]
+- Processor & GPU: 
+- RAM memory: 
+- Main use case: [ Gaming / eSports / Editing / Work ]
+
+🔗 Software reference: https://josue2004exe.github.io/
+🖼️ Morales Dev Suite screenshot: https://josue2004exe.github.io/assets/images/morales_development.png`
+        }
+    };
+
+    function openSmartGmail(lang = currentLang) {
+        const tpl = serviceEmailTemplates[lang] || serviceEmailTemplates.es;
+        const email = 'alexpc778@gmail.com';
+        const encSub = encodeURIComponent(tpl.subject);
+        const encBody = encodeURIComponent(tpl.body);
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = `mailto:${email}?subject=${encSub}&body=${encBody}`;
+        } else {
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encSub}&body=${encBody}`, '_blank');
+        }
+    }
+
+    let activeProjectKey = null;
+
+    function renderModalContent(projectId, lang) {
+        const data = showcaseData[projectId] && showcaseData[projectId][lang] ? showcaseData[projectId][lang] : null;
+        if (!data) return;
+
+        activeProjectKey = projectId;
+
+        if (modalProjectBadge) modalProjectBadge.textContent = data.badge;
+        if (modalProjectStatus) modalProjectStatus.innerHTML = data.status;
+        if (modalProjectTitle) modalProjectTitle.textContent = data.title;
+        if (modalProjectSubtitle) modalProjectSubtitle.textContent = data.subtitle;
+
+        // Render Features
+        if (modalFeaturesList) {
+            modalFeaturesList.innerHTML = '';
+            data.features.forEach(feat => {
+                const li = document.createElement('li');
+                li.className = 'modal-feature-item';
+                li.innerHTML = feat;
+                modalFeaturesList.appendChild(li);
             });
-        });
-
-        function closeModal() {
-            videoModal.classList.remove('open');
-            modalVideoPlayer.pause();
-            modalVideoPlayer.src = ""; // Detener carga de video
         }
 
-        videoModalClose.addEventListener('click', closeModal);
+        // Render Tech Stack Badges
+        if (modalTechStack) {
+            modalTechStack.innerHTML = '';
+            data.badges.forEach(b => {
+                const span = document.createElement('span');
+                span.className = 'modal-stack-pill';
+                span.innerHTML = `<i class="${b.icon}"></i> ${b.text}`;
+                modalTechStack.appendChild(span);
+            });
+        }
 
-        // Cerrar al hacer clic en el fondo oscuro
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) {
-                closeModal();
-            }
-        });
+        // Render Action Buttons
+        if (modalFooterActions) {
+            modalFooterActions.innerHTML = '';
+            data.actions.forEach(act => {
+                if (act.type === 'service-dropdown') {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'modal-service-dropdown-wrap';
+                    wrap.innerHTML = `
+                        <button class="btn btn-primary service-dropdown-toggle" aria-label="${act.title}" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-solid fa-wrench"></i> <span>${act.title}</span> <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                        </button>
+                        <div class="modal-service-menu" role="menu">
+                            ${act.options.map(opt => {
+                                if (opt.isEmail) {
+                                    return `
+                                        <a href="#" class="service-menu-item service-email-btn" role="menuitem">
+                                            <div class="service-icon-box ${opt.cls}"><i class="${opt.icon}"></i></div>
+                                            <div class="service-text-box">
+                                                <strong>${opt.title}</strong>
+                                                <small>${opt.desc}</small>
+                                            </div>
+                                        </a>
+                                    `;
+                                } else {
+                                    return `
+                                        <a href="${opt.href}" target="_blank" rel="noopener noreferrer" class="service-menu-item" role="menuitem">
+                                            <div class="service-icon-box ${opt.cls}"><i class="${opt.icon}"></i></div>
+                                            <div class="service-text-box">
+                                                <strong>${opt.title}</strong>
+                                                <small>${opt.desc}</small>
+                                            </div>
+                                        </a>
+                                    `;
+                                }
+                            }).join('')}
+                        </div>
+                    `;
+                    modalFooterActions.appendChild(wrap);
+                } else if (act.type === 'disabled') {
+                    const span = document.createElement('span');
+                    span.className = 'project-link-btn disabled-btn';
+                    span.innerHTML = `<i class="${act.icon}"></i> ${act.text}`;
+                    modalFooterActions.appendChild(span);
+                } else {
+                    const a = document.createElement('a');
+                    a.href = act.href;
+                    a.target = '_blank';
+                    a.className = act.type === 'primary' ? 'btn btn-primary' : 'btn btn-secondary';
+                    a.innerHTML = `<i class="${act.icon}"></i> ${act.text}`;
+                    modalFooterActions.appendChild(a);
+                }
+            });
+        }
 
-        // Cerrar con la tecla Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && videoModal.classList.contains('open')) {
-                closeModal();
+        // Video Handling
+        if (modalVideoPlayer && modalVideoPlaceholder) {
+            modalVideoPlayer.style.display = 'block';
+            modalVideoPlaceholder.style.display = 'none';
+
+            if (data.video) {
+                modalVideoPlayer.src = data.video;
+                modalVideoPlayer.play().catch(() => {
+                    modalVideoPlayer.style.display = 'none';
+                    modalVideoPlaceholder.style.display = 'block';
+                    if (modalPlaceholderImg) modalPlaceholderImg.src = data.placeholderImg;
+                });
+            } else {
+                modalVideoPlayer.style.display = 'none';
+                modalVideoPlaceholder.style.display = 'block';
+                if (modalPlaceholderImg) modalPlaceholderImg.src = data.placeholderImg;
             }
-        });
+        }
     }
+
+    function openShowcaseModal(projectId) {
+        if (!projectModal) return;
+        renderModalContent(projectId, currentLang);
+        projectModal.classList.add('open');
+        projectModal.setAttribute('aria-hidden', 'false');
+        body.style.overflow = 'hidden';
+    }
+
+    function closeShowcaseModal() {
+        if (!projectModal) return;
+        projectModal.classList.remove('open');
+        projectModal.setAttribute('aria-hidden', 'true');
+        body.style.overflow = '';
+        if (modalVideoPlayer) {
+            modalVideoPlayer.pause();
+            modalVideoPlayer.src = '';
+        }
+        activeProjectKey = null;
+    }
+
+    openShowcaseBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectId = btn.getAttribute('data-project');
+            if (projectId) {
+                openShowcaseModal(projectId);
+            }
+        });
+    });
+
+    if (projectModalClose) projectModalClose.addEventListener('click', closeShowcaseModal);
+    if (projectModalBackdrop) projectModalBackdrop.addEventListener('click', closeShowcaseModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projectModal && projectModal.classList.contains('open')) {
+            closeShowcaseModal();
+        }
+    });
+
+    // --- MANEJO DE MENÚS DESPLEGABLES DE SERVICIO (CARD Y MODAL) ---
+    document.addEventListener('click', (e) => {
+        const emailBtn = e.target.closest('.service-email-btn');
+        if (emailBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            openSmartGmail(currentLang);
+            return;
+        }
+
+        const toggle = e.target.closest('.service-dropdown-toggle');
+        const allWraps = document.querySelectorAll('.card-service-dropdown-wrap, .modal-service-dropdown-wrap');
+
+        if (toggle) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parentWrap = toggle.closest('.card-service-dropdown-wrap, .modal-service-dropdown-wrap');
+            const menu = parentWrap.querySelector('.card-service-menu, .modal-service-menu');
+            const isOpen = menu.classList.contains('open');
+
+            // Cerrar todos los demás menús antes de abrir este
+            allWraps.forEach(w => {
+                const m = w.querySelector('.card-service-menu, .modal-service-menu');
+                const t = w.querySelector('.service-dropdown-toggle');
+                if (m) m.classList.remove('open');
+                if (t) {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            if (!isOpen) {
+                menu.classList.add('open');
+                toggle.classList.add('active');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        } else {
+            // Si hace clic fuera de cualquier menú, cerrarlos todos
+            allWraps.forEach(w => {
+                const m = w.querySelector('.card-service-menu, .modal-service-menu');
+                const t = w.querySelector('.service-dropdown-toggle');
+                if (m) m.classList.remove('open');
+                if (t) {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    });
+
     // --- 8. EFECTO DE BRILLO MAGNÉTICO (SPOTLIGHT HOVER) EN TARJETAS ---
     const interactiveCards = document.querySelectorAll('.skill-card, .project-card, .about-card');
     interactiveCards.forEach(card => {
@@ -352,7 +691,87 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     });
 
-    // --- 10. SISTEMA MULTILENGUAJE (ESPAÑOL / INGLÉS) ---
+    // --- 10. COPIAR CORREO AL PORTAPAPELES Y NOTIFICACIÓN TOAST ---
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const toastNotification = document.getElementById('toast-notification');
+    let toastTimeout;
+
+    function showToast(message) {
+        if (!toastNotification) return;
+        const toastText = document.getElementById('toast-text');
+        if (toastText && message) {
+            toastText.textContent = message;
+        }
+        
+        toastNotification.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toastNotification.classList.remove('show');
+        }, 3000);
+    }
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const emailToCopy = 'alexpc778@gmail.com';
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(emailToCopy);
+                } else {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = emailToCopy;
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                }
+                
+                // Efecto visual en botón
+                copyEmailBtn.classList.add('copied');
+                const copyIcon = copyEmailBtn.querySelector('i');
+                if (copyIcon) {
+                    copyIcon.classList.remove('fa-copy', 'fa-regular');
+                    copyIcon.classList.add('fa-solid', 'fa-check');
+                }
+                
+                const toastMsg = currentLang === 'en' ? 'Email copied to clipboard!' : '¡Correo copiado al portapapeles!';
+                showToast(toastMsg);
+
+                setTimeout(() => {
+                    copyEmailBtn.classList.remove('copied');
+                    if (copyIcon) {
+                        copyIcon.classList.remove('fa-solid', 'fa-check');
+                        copyIcon.classList.add('fa-regular', 'fa-copy');
+                    }
+                }, 2000);
+            } catch (err) {
+                console.error('Error al copiar correo:', err);
+            }
+        });
+    }
+
+    // --- 11. BOTÓN FLOTANTE VOLVER ARRIBA (BACK TO TOP) ---
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 350) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // --- 12. SISTEMA MULTILENGUAJE (ESPAÑOL / INGLÉS) ---
     const translations = {
         es: {
             "nav-home": "Inicio",
@@ -365,6 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero-title-name": "Flavio Josueph Morales",
             "hero-subtitle": "Desarrollador de Software enfocado en el diseño de software para PC, aplicaciones móviles y arquitecturas de Inteligencia Artificial, impulsado por flujos de trabajo modernos de vibe coding.",
             "hero-btn-projects": "Ver Proyectos",
+            "hero-btn-cv": "Descargar CV",
             "hero-btn-contact": "Contactar",
             "about-title": "Sobre Mí",
             "about-principles-title": "Principios",
@@ -378,7 +798,6 @@ document.addEventListener('DOMContentLoaded', () => {
             "about-approach-desc1": "Como estudiante universitario actualmente cursando el 5to semestre de Ingeniería de Software, combino las bases académicas y el rigor técnico con las últimas herramientas de desarrollo rápido.",
             "about-approach-desc2": "Me apasiona llevar la teoría de algoritmos y lógica a la práctica real mediante la creación de aplicaciones funcionales para PC y móviles. Mi enfoque está en el aprendizaje continuo, experimentando con arquitecturas de IA y adoptando flujos de vibe coding para transformar proyectos académicos en soluciones de impacto.",
             "about-stat1-lbl": "Años de código",
-            "about-stat2-num": "4+",
             "about-stat2-lbl": "Proyectos terminados",
             "about-stat3-lbl": "Código limpio y probado",
             "skills-title": "Habilidades",
@@ -394,20 +813,29 @@ document.addEventListener('DOMContentLoaded', () => {
             "projects-title": "Proyectos destacados",
             "projects-subtitle": "Una selección de las aplicaciones que he diseñado y programado.",
             "projects-filter-all": "Todos",
-            "projects-filter-desktop": "PC / Desktop",
             "projects-filter-android": "Android",
+            "projects-filter-pc": "PC",
             "projects-filter-ai": "IA",
             "projects-filter-web": "Web",
-            "project-suite-tag": "C# / .NET / WPF / Kernel",
-            "project-suite-title": "Morales Development Suite v3.3.0 PRO",
-            "project-suite-desc": "Suite integral de optimización de sistemas y monitoreo de hardware para Windows. Combina una interfaz moderna de alto rendimiento en C# y WPF con backend nativo compilado y llamadas directas al kernel de Windows (ntdll.dll / Win32 API) para optimización extrema de RAM, red y telemetría en tiempo real.",
-            "project-suite-demo": " Demo",
-            "project-suite-post": " Post",
+            "project-demo-btn": " Demo & Funcionamiento",
+            "service-btn-title": "Solicitar Servicio",
+            "service-opt-gmail": "Contactar por Correo",
+            "service-opt-discord": "Contactar por Discord",
+            "service-opt-discord-desc": "Servidor de soporte",
+            "modal-video-pending-title": "Video Demostrativo",
+            "modal-video-pending-sub": "Próximamente disponible",
+            "modal-video-hint": "Reproduce el video para observar el software en tiempo real.",
+            "modal-how-works-title": "¿Cómo funciona el software?",
+            "modal-stack-title": "Arquitectura & Tecnologías",
             "project1-tag": "Android / Kotlin",
             "project1-title": "DupCleaner",
             "project1-desc": "Aplicación Android nativa en Kotlin y Jetpack Compose (MVVM). Escanea la agenda del dispositivo para agrupar y depurar de forma inteligente contactos duplicados, permitiendo un borrado masivo y seguro que protege el registro original.",
             "project1-demo": " Demo",
             "project1-soon": " Próximamente",
+            "project-pc-tag": "Software PC / Desktop",
+            "project-pc-title": "Morales Dev Suite",
+            "project-pc-desc": "Suite integral de optimización y tuning de Windows orientada a maximizar el rendimiento del sistema, priorización dinámica de CPU, reducción de latencia para eSports y software pesado, y ajustes avanzados de red TCP/IP y privacidad.",
+            "project-pc-code": " Código",
             "project2-tag": "Inteligencia Artificial",
             "project2-title": "AI Semantic Assistant",
             "project2-desc": "Asistente inteligente capaz de analizar, estructurar y clasificar grandes volúmenes de texto de manera semántica. Integra APIs de procesamiento de lenguaje natural y automatiza reportes.",
@@ -427,6 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-placeholder-email": "Email",
             "form-placeholder-message": "Mensaje",
             "form-btn-submit": "Enviar Mensaje",
+            "toast-copied": "¡Correo copiado al portapapeles!",
             "footer-copyright": "© 2026 Flavio Morales. Todos los derechos reservados."
         },
         en: {
@@ -440,6 +869,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero-title-name": "Flavio Josueph Morales",
             "hero-subtitle": "Software Developer focused on PC software design, mobile applications, and AI architectures, driven by modern vibe coding workflows.",
             "hero-btn-projects": "View Projects",
+            "hero-btn-cv": "Download CV",
             "hero-btn-contact": "Contact",
             "about-title": "About Me",
             "about-principles-title": "Principles",
@@ -453,7 +883,6 @@ document.addEventListener('DOMContentLoaded', () => {
             "about-approach-desc1": "As a university student currently in the 5th semester of Software Engineering, I combine academic foundations and technical rigor with the latest rapid development tools.",
             "about-approach-desc2": "I am passionate about bringing algorithm theory and logic into real practice by creating functional applications for PC and mobile. My focus is on continuous learning, experimenting with AI architectures, and adopting vibe coding workflows to transform academic projects into high-impact solutions.",
             "about-stat1-lbl": "Years of coding",
-            "about-stat2-num": "4+",
             "about-stat2-lbl": "Projects completed",
             "about-stat3-lbl": "Clean & tested code",
             "skills-title": "Skills",
@@ -469,20 +898,29 @@ document.addEventListener('DOMContentLoaded', () => {
             "projects-title": "Featured Projects",
             "projects-subtitle": "A selection of applications I have designed and programmed.",
             "projects-filter-all": "All",
-            "projects-filter-desktop": "PC / Desktop",
             "projects-filter-android": "Android",
+            "projects-filter-pc": "PC",
             "projects-filter-ai": "AI",
             "projects-filter-web": "Web",
-            "project-suite-tag": "C# / .NET / WPF / Kernel",
-            "project-suite-title": "Morales Development Suite v3.3.0 PRO",
-            "project-suite-desc": "Comprehensive system optimization and hardware monitoring suite for Windows. Combines a modern high-performance UI in C# and WPF with a compiled native backend and direct Windows kernel calls (ntdll.dll / Win32 API) for extreme RAM, network, and real-time telemetry optimization.",
-            "project-suite-demo": " Demo",
-            "project-suite-post": " Post",
+            "project-demo-btn": " Demo & How it Works",
+            "service-btn-title": "Request Service",
+            "service-opt-gmail": "Contact via Email",
+            "service-opt-discord": "Contact via Discord",
+            "service-opt-discord-desc": "Support server",
+            "modal-video-pending-title": "Demo Video",
+            "modal-video-pending-sub": "Coming soon",
+            "modal-video-hint": "Play the video to watch the software in real time.",
+            "modal-how-works-title": "How does the software work?",
+            "modal-stack-title": "Architecture & Tech Stack",
             "project1-tag": "Android / Kotlin",
             "project1-title": "DupCleaner",
             "project1-desc": "Native Android app in Kotlin and Jetpack Compose (MVVM). Scans the device agenda to intelligently group and clean duplicate contacts, allowing secure bulk deletion that protects the original registry.",
             "project1-demo": " Demo",
             "project1-soon": " Coming Soon",
+            "project-pc-tag": "PC / Desktop Software",
+            "project-pc-title": "Morales Dev Suite",
+            "project-pc-desc": "Comprehensive Windows optimization and tuning suite designed to maximize system performance, dynamic CPU scheduling, latency reduction for eSports and heavy workflows, and advanced TCP/IP and privacy tweaks.",
+            "project-pc-code": " Code",
             "project2-tag": "Artificial Intelligence",
             "project2-title": "AI Semantic Assistant",
             "project2-desc": "Intelligent assistant capable of analyzing, structuring, and classifying large volumes of text semantically. Integrates natural language processing APIs and automates reports.",
@@ -502,6 +940,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-placeholder-email": "Email",
             "form-placeholder-message": "Message",
             "form-btn-submit": "Send Message",
+            "toast-copied": "Email copied to clipboard!",
             "footer-copyright": "© 2026 Flavio Morales. All rights reserved."
         }
     };
@@ -527,6 +966,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+        // Re-renderizar el modal si está abierto
+        if (activeProjectKey && projectModal && projectModal.classList.contains('open')) {
+            renderModalContent(activeProjectKey, lang);
+        }
 
         // Cambiar el texto de los botones del toggle
         langToggles.forEach(toggle => {
