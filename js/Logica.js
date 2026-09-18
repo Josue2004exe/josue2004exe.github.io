@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Morales Dev Suite',
                 subtitle: 'Herramienta integral de optimización extrema, diagnóstico de hardware y kernel tuning para Windows.',
                 video: 'assets/videos/morales_dev.mp4',
-                placeholderImg: 'assets/images/morales_development.png?v=3.0',
+                placeholderImg: 'assets/images/morales_development.png?v=3.1',
                 features: [
                     '<strong>Arquitectura Híbrida C# & C++:</strong> Frontend moderno en WPF (.NET 8.0) enlazado a un núcleo nativo C++ compilado con Nuitka para ejecución instantánea sin dependencias.',
                     '<strong>Optimizaciones a Nivel de Kernel:</strong> NtSetTimerResolution a 0.5ms nativo, kernel 100% en memoria RAM y priorización dinámica de CPU para erradicar micro-tirones (stuttering).',
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Morales Dev Suite',
                 subtitle: 'Comprehensive Windows optimization, hardware diagnostics, and kernel tuning suite.',
                 video: 'assets/videos/morales_dev.mp4',
-                placeholderImg: 'assets/images/morales_development.png?v=3.0',
+                placeholderImg: 'assets/images/morales_development.png?v=3.1',
                 features: [
                     '<strong>Hybrid C# & C++ Architecture:</strong> Modern WPF (.NET 8.0) frontend linked to a native C++ core compiled with Nuitka for instant standalone execution.',
                     '<strong>Kernel-Level Tuning:</strong> NtSetTimerResolution set to native 0.5ms, kernel 100% in RAM, and dynamic CPU scheduling to eliminate micro-stuttering.',
