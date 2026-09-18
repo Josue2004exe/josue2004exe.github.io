@@ -529,17 +529,17 @@ I would like to request the optimization service for my computer using Morales D
             });
         }
 
-        // Video Handling
+        // Video Handling con Lazy-Loading Estricto
         if (modalVideoPlayer && modalVideoPlaceholder) {
             modalVideoPlayer.style.display = 'block';
             modalVideoPlaceholder.style.display = 'none';
 
             if (data.video) {
+                modalVideoPlayer.preload = 'metadata';
                 modalVideoPlayer.src = data.video;
+                modalVideoPlayer.load();
                 modalVideoPlayer.play().catch(() => {
-                    modalVideoPlayer.style.display = 'none';
-                    modalVideoPlaceholder.style.display = 'block';
-                    if (modalPlaceholderImg) modalPlaceholderImg.src = data.placeholderImg;
+                    // Si el navegador bloquea autoplay o hay error, conservar video con controles
                 });
             } else {
                 modalVideoPlayer.style.display = 'none';
@@ -564,7 +564,8 @@ I would like to request the optimization service for my computer using Morales D
         body.style.overflow = '';
         if (modalVideoPlayer) {
             modalVideoPlayer.pause();
-            modalVideoPlayer.src = '';
+            modalVideoPlayer.removeAttribute('src');
+            modalVideoPlayer.load(); // Libera la memoria del buffer (48MB/75MB) y cancela peticiones de red
         }
         activeProjectKey = null;
     }
