@@ -13,7 +13,7 @@
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/Diseño.css?v=2.0">
+    <link rel="stylesheet" href="css/Diseño.css?v=2.1">
 </head>
 <body>
 
@@ -183,7 +183,7 @@
                             <span class="stat-label" data-i18n="about-stat1-lbl">Años de código</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number" data-i18n="about-stat2-num">3+</span>
+                            <span class="stat-number" data-i18n="about-stat2-num">4+</span>
                             <span class="stat-label" data-i18n="about-stat2-lbl">Proyectos terminados</span>
                         </div>
                         <div class="stat-item">
@@ -262,6 +262,7 @@
                 <!-- Filtros de Proyectos -->
                 <div class="projects-filters">
                     <button class="filter-btn active" data-filter="all" id="btn-filter-all" data-i18n="projects-filter-all">Todos</button>
+                    <button class="filter-btn" data-filter="desktop" id="btn-filter-desktop" data-i18n="projects-filter-desktop">PC / Desktop</button>
                     <button class="filter-btn" data-filter="android" id="btn-filter-android" data-i18n="projects-filter-android">Android</button>
                     <button class="filter-btn" data-filter="ai" id="btn-filter-ai" data-i18n="projects-filter-ai">IA</button>
                     <button class="filter-btn" data-filter="web" id="btn-filter-web" data-i18n="projects-filter-web">Web</button>
@@ -269,7 +270,25 @@
 
                 <!-- Grid de Proyectos -->
                 <div class="projects-grid">
-                    <!-- Proyecto 1: DupCleaner -->
+                    <!-- Proyecto 1: Morales Development Suite -->
+                    <article class="project-card" data-category="desktop">
+                        <div class="project-image-placeholder">
+                            <img src="assets/images/morales_suite.png" alt="Morales Development Suite v3.3.0 PRO" class="project-img">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-tag" data-i18n="project-suite-tag">C# / .NET / WPF / Kernel</span>
+                            <h3 class="project-card-title" data-i18n="project-suite-title">Morales Development Suite v3.3.0 PRO</h3>
+                            <p class="project-card-desc" data-i18n="project-suite-desc">
+                                Suite integral de optimización de sistemas y monitoreo de hardware para Windows. Combina una interfaz moderna de alto rendimiento en C# y WPF con backend nativo compilado y llamadas directas al kernel de Windows (ntdll.dll / Win32 API) para optimización extrema de RAM, red y telemetría en tiempo real.
+                            </p>
+                            <div class="project-links">
+                                <button class="project-link-btn play-demo-btn" data-video="assets/videos/morales_suite.mp4" aria-label="Ver demostración en video de Morales Development Suite"><i class="fa-solid fa-play"></i> <span data-i18n="project-suite-demo"> Demo</span></button>
+                                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7502392455879749632/" target="_blank" class="project-link-btn" aria-label="Ver publicación técnica en LinkedIn"><i class="fa-brands fa-linkedin-in"></i> <span data-i18n="project-suite-post"> Post</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2: DupCleaner -->
                     <article class="project-card" data-category="android">
                         <div class="project-image-placeholder">
                             <img src="assets/images/dupcleaner.png" alt="Logo de DupCleaner" class="project-logo">
@@ -400,6 +419,6 @@
     </div>
 
     <!-- Script JS -->
-    <script src="js/Logica.js?v=2.0"></script>
+    <script src="js/Logica.js?v=2.1"></script>
 </body>
 </html>
