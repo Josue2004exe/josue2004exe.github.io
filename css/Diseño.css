@@ -206,9 +206,23 @@ img {
     transform: translateY(0);
 }
 
+/* Las secciones con id no deben sufrir transformaciones verticales para no alterar el cálculo de scroll */
+section.scroll-reveal {
+    transform: none;
+}
+
 /* ==========================================================================
    HEADER / NAVBAR
    ========================================================================== */
+
+/* Corrección de Offset de Navegación (Evita que el Header Fijo tape los Títulos) */
+section[id] {
+    scroll-margin-top: 45px;
+}
+
+#hero {
+    scroll-margin-top: 0;
+}
 
 .navbar-header {
     position: fixed;
@@ -217,25 +231,30 @@ img {
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
-    background-color: rgba(10, 10, 10, 0.7);
+    background-color: rgba(10, 10, 10, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: var(--transition-premium);
 }
 
 .navbar-header.scrolled {
-    padding: 12px 0;
-    background-color: rgba(10, 10, 10, 0.85);
+    background-color: rgba(10, 10, 10, 0.9);
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
 }
 
 .navbar-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 24px;
+    padding: 18px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: var(--transition-premium);
+}
+
+.navbar-header.scrolled .navbar-container {
+    padding: 12px 24px;
 }
 
 .navbar-logo {
