@@ -792,6 +792,138 @@ SOBRE MÍ
 /* ==========================================================================
    HABILIDADES
    ========================================================================== */
+/* ==========================================================================
+   SHOWCASE VISUAL: STACK TECNOLÓGICO & HERRAMIENTAS
+   ========================================================================== */
+
+.tech-stack-showcase {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: var(--transition-premium);
+}
+
+.tech-stack-showcase:hover {
+    border-color: var(--border-color-hover);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.tech-stack-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tech-stack-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+}
+
+.tech-stack-title i {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.tech-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.tech-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 16px;
+    min-width: 86px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+    user-select: none;
+}
+
+.tech-icon-item:hover,
+.tech-icon-item.touch-hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6), 0 0 16px rgba(255, 255, 255, 0.06);
+}
+
+.tech-icon-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.28s ease;
+}
+
+.tech-icon-item:hover .tech-icon-img,
+.tech-icon-item.touch-hover .tech-icon-img {
+    transform: scale(1.12);
+    filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.25));
+}
+
+.tech-icon-label {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.tech-icon-item:hover .tech-icon-label,
+.tech-icon-item.touch-hover .tech-icon-label {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .tech-stack-showcase {
+        padding: 18px 12px;
+        margin-bottom: 36px;
+    }
+    .tech-icons-container {
+        gap: 8px;
+    }
+    .tech-icon-item {
+        min-width: 74px;
+        padding: 10px 8px;
+        gap: 6px;
+    }
+    .tech-icon-img {
+        width: 30px;
+        height: 30px;
+    }
+    .tech-icon-label {
+        font-size: 0.68rem;
+    }
+}
 
 .skills-grid {
     display: grid;

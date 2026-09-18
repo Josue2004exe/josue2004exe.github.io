@@ -652,7 +652,7 @@ I would like to request the optimization service for my computer using Morales D
     });
 
     // --- 9. SOPORTE TÁCTIL PARA EFECTOS HOVER EN MÓVILES ---
-    const touchElements = document.querySelectorAll('.skill-card, .project-card, .about-card, .hero-image-card, .skill-tag, .principle-item');
+    const touchElements = document.querySelectorAll('.skill-card, .project-card, .about-card, .hero-image-card, .skill-tag, .principle-item, .tech-icon-item');
     let isScrolling = false;
 
     // Detectar si el usuario está haciendo scroll para cancelar los hovers táctiles
@@ -803,6 +803,7 @@ I would like to request the optimization service for my computer using Morales D
             "about-stat3-lbl": "Código limpio y probado",
             "skills-title": "Habilidades",
             "skills-subtitle": "Las tecnologías que utilizo para dar vida a los proyectos.",
+            "tech-stack-title": " Stack Tecnológico & Herramientas",
             "skills-android-title": "Desarrollo Android",
             "skills-android-desc": "Creación de aplicaciones nativas en Kotlin, uso de Jetpack Compose, viewmodels y manejo seguro de almacenamiento local.",
             "skills-ai-title": "Inteligencia Artificial",
@@ -888,6 +889,7 @@ I would like to request the optimization service for my computer using Morales D
             "about-stat3-lbl": "Clean & tested code",
             "skills-title": "Skills",
             "skills-subtitle": "The technologies I use to bring projects to life.",
+            "tech-stack-title": " Tech Stack & Tools",
             "skills-android-title": "Android Development",
             "skills-android-desc": "Creation of native apps in Kotlin, using Jetpack Compose, viewmodels, and secure local storage management.",
             "skills-ai-title": "Artificial Intelligence",
