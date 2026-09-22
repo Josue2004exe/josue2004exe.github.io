@@ -527,18 +527,29 @@ I would like to request the optimization service for my computer using Morales D
             });
         }
 
-        // Video Handling con Lazy-Loading Estricto
+        // Video Handling con Carga Inmediata y Autoplay Fluido
         if (modalVideoPlayer && modalVideoPlaceholder) {
-            modalVideoPlayer.style.display = 'block';
-            modalVideoPlaceholder.style.display = 'none';
-
             if (data.video) {
-                modalVideoPlayer.preload = 'metadata';
-                modalVideoPlayer.src = data.video;
-                modalVideoPlayer.load();
-                modalVideoPlayer.play().catch(() => {
-                    // Si el navegador bloquea autoplay o hay error, conservar video con controles
-                });
+                modalVideoPlayer.style.display = 'block';
+                modalVideoPlaceholder.style.display = 'none';
+
+                const targetUrl = new URL(data.video, window.location.href).href;
+                if (modalVideoPlayer.src !== targetUrl) {
+                    modalVideoPlayer.preload = 'auto';
+                    modalVideoPlayer.src = data.video;
+                } else if (modalVideoPlayer.ended) {
+                    modalVideoPlayer.currentTime = 0;
+                }
+
+                // Autoplay instantáneo sin bloquearse por restricciones de audio del navegador
+                const playPromise = modalVideoPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // Si Brave Shield o Chrome restringen autoplay con sonido, arrancar en mute para inicio inmediato
+                        modalVideoPlayer.muted = true;
+                        modalVideoPlayer.play().catch(() => {});
+                    });
+                }
             } else {
                 modalVideoPlayer.style.display = 'none';
                 modalVideoPlaceholder.style.display = 'block';
@@ -562,13 +573,27 @@ I would like to request the optimization service for my computer using Morales D
         body.style.overflow = '';
         if (modalVideoPlayer) {
             modalVideoPlayer.pause();
-            modalVideoPlayer.removeAttribute('src');
-            modalVideoPlayer.load(); // Libera la memoria del buffer (48MB/75MB) y cancela peticiones de red
         }
         activeProjectKey = null;
     }
 
+    // --- PRECARGA ANTICIPADA AL HOVER / TOUCH (LATENCIA CERO) ---
     openShowcaseBtns.forEach(btn => {
+        const warmUpVideo = () => {
+            const projectId = btn.getAttribute('data-project');
+            const data = showcaseData[projectId] && showcaseData[projectId][currentLang];
+            if (data && data.video && modalVideoPlayer) {
+                const targetUrl = new URL(data.video, window.location.href).href;
+                if (modalVideoPlayer.src !== targetUrl) {
+                    modalVideoPlayer.preload = 'auto';
+                    modalVideoPlayer.src = data.video;
+                }
+            }
+        };
+
+        btn.addEventListener('pointerenter', warmUpVideo, { passive: true });
+        btn.addEventListener('touchstart', warmUpVideo, { passive: true });
+
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const projectId = btn.getAttribute('data-project');
