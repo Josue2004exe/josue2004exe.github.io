@@ -304,8 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contactar por Correo', desc: 'alexpc778@gmail.com', isEmail: true },
                             { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contactar por Discord', desc: 'Servidor de soporte', href: 'https://discord.gg/JyGVZ2JpwB' }
                         ]
-                    },
-                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' Ver Repositorio' }
+                    }
                 ]
             },
             en: {
@@ -337,8 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             { icon: 'fa-solid fa-envelope', cls: 'gmail-box', title: 'Contact via Email', desc: 'alexpc778@gmail.com', isEmail: true },
                             { icon: 'fa-brands fa-discord', cls: 'discord-box', title: 'Contact via Discord', desc: 'Support server', href: 'https://discord.gg/JyGVZ2JpwB' }
                         ]
-                    },
-                    { type: 'primary', href: 'https://github.com/Josue2004exe/SoftwareDeOptimizacion', icon: 'fa-brands fa-github', text: ' View Repository' }
+                    }
                 ]
             }
         },
@@ -834,6 +832,7 @@ I would like to request the optimization service for my computer using Morales D
             "project1-desc": "Aplicación Android nativa en Kotlin y Jetpack Compose (MVVM). Escanea la agenda del dispositivo para agrupar y depurar de forma inteligente contactos duplicados, permitiendo un borrado masivo y seguro que protege el registro original.",
             "project1-demo": " Demo",
             "project1-soon": " Próximamente",
+            "project-soon": " Próximamente",
             "project-pc-tag": "Software PC / Desktop",
             "project-pc-title": "Morales Dev Suite",
             "project-pc-desc": "Suite integral de optimización y tuning de Windows orientada a maximizar el rendimiento del sistema, priorización dinámica de CPU, reducción de latencia para eSports y software pesado, y ajustes avanzados de red TCP/IP y privacidad.",
@@ -920,6 +919,7 @@ I would like to request the optimization service for my computer using Morales D
             "project1-desc": "Native Android app in Kotlin and Jetpack Compose (MVVM). Scans the device agenda to intelligently group and clean duplicate contacts, allowing secure bulk deletion that protects the original registry.",
             "project1-demo": " Demo",
             "project1-soon": " Coming Soon",
+            "project-soon": " Coming Soon",
             "project-pc-tag": "PC / Desktop Software",
             "project-pc-title": "Morales Dev Suite",
             "project-pc-desc": "Comprehensive Windows optimization and tuning suite designed to maximize system performance, dynamic CPU scheduling, latency reduction for eSports and heavy workflows, and advanced TCP/IP and privacy tweaks.",
